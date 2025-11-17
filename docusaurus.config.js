@@ -33,12 +33,12 @@ const config = {
       {
         docs: {
           sidebarPath: './sidebars.js',
-          editUrl: 'https://github.com/QuadMLabs/quadmlabs--docs/tree/main/',
+          editUrl: undefined,
         },
-        blog: {
+        /*blog: {
           showReadingTime: true,
           editUrl: 'https://github.com/QuadMLabs/quadmlabs--docs/tree/main/',
-        },
+        },*/
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -71,19 +71,19 @@ const config = {
           position: 'left',
           label: 'Portfolio',
         },
-        { to: '/blog', label: 'Blog', position: 'left' },
-        {
+        //{ to: '/blog', label: 'Blog', position: 'left' },
+        /*{
           href: 'https://github.com/QuadMLabs/quadmlabs--docs',
           label: 'GitHub',
           position: 'right',
-        },
+        },*/
       ],
     },
     footer: {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Documentation',
           items: [{ label: 'Documentation', to: '/docs/intro' }],
         },
         {
@@ -106,15 +106,16 @@ const config = {
         {
           title: 'More',
           items: [
+            /*
             { label: 'Blog', to: '/blog' },
             {
               label: 'GitHub',
               href: 'https://github.com/QuadMLabs/quadmlabs--docs',
-            },
+            },*/
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} QuadMLabs. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} QuadMLabs.`,
     },
     prism: {
       theme: prismThemes.github,

@@ -1,47 +1,19 @@
 ---
-sidebar_position: 1
+id: intro
+title: Documentation Intro
 ---
 
-# Documentation Intro
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
-Let's discover **Docusaurus in less than 5 minutes**.
+# 👋 Welcome to QuadMLabs Documentation
 
-## Getting Started
+In this section, you'll find complete documentation for the various applications, solutions, and tools developed by QuadMLabs.
 
-Get started by **creating a new site**.
+Each project includes its purpose, features, user guides, configurations, use cases, and technical details to help you understand and get the most out of each implementation.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+Explore the projects to discover how our solutions can optimize your processes, improve operational efficiency, and simplify management within the Atlassian ecosystem.
 
-### What you'll need
+## Explore the Topics
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+<DocCardList items={useCurrentSidebarCategory().items} />
