@@ -177,5 +177,18 @@ config.plugins = [
   ],
 ];
 
+module.exports = {
+  // 👇 tu dominio raíz (importante)
+  url: 'https://quadmlabs.com',
+
+  // 👇 si el sitio está en una subcarpeta, indícalo, sino déjalo así:
+  baseUrl: '/',
+
+  // 👇 habilita cname automático
+  organizationName: 'QuadMLabs',
+  projectName: 'quadmlabs--docs',
+};
+
+
 
 export default config;
