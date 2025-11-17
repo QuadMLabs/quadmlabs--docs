@@ -71,6 +71,13 @@ const config = {
           position: 'left',
           label: 'Portfolio',
         },
+        {
+          type: 'docSidebar',
+          sidebarId: 'sidebarsContact',
+          docsPluginId: 'contact',
+          position: 'left',
+          label: 'Contact',
+        },
         //{ to: '/blog', label: 'Blog', position: 'left' },
         /*{
           href: 'https://github.com/QuadMLabs/quadmlabs--docs',
@@ -82,11 +89,11 @@ const config = {
     footer: {
       style: 'dark',
       links: [
-        {
+        /*{
           title: 'Documentation',
           items: [{ label: 'Documentation', to: '/docs/intro' }],
-        },
-        {
+        },*/
+        /*{
           title: 'Community',
           items: [
             {
@@ -102,18 +109,19 @@ const config = {
               href: 'https://x.com/docusaurus',
             },
           ],
-        },
-        {
+        },*/
+        /*{
           title: 'More',
           items: [
-            /*
-            { label: 'Blog', to: '/blog' },
+            
+            { label: 'Contacts', to: '/contact/contact' },
+            
             {
               label: 'GitHub',
               href: 'https://github.com/QuadMLabs/quadmlabs--docs',
-            },*/
+            },
           ],
-        },
+        },*/
       ],
       copyright: `Copyright © ${new Date().getFullYear()} QuadMLabs.`,
     },
@@ -132,7 +140,17 @@ const config = {
         path: 'portfolio',
         routeBasePath: 'portfolio',
         sidebarPath: require.resolve('./sidebarsPortfolio.js'),
-        editUrl: 'https://github.com/QuadMLabs/quadmlabs--docs/tree/main/',
+        editUrl: undefined,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'contact',
+        path: 'contact', 
+        routeBasePath: 'contact',
+        sidebarPath: require.resolve('./sidebarsContact.js'),
+        editUrl: undefined,
       },
     ],
   ],
