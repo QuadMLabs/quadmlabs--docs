@@ -34,6 +34,8 @@ const sidebars = {
             'project-performance-and-flow-analytics/ppfa-key-indicators-period-analyzed',
             'project-performance-and-flow-analytics/ppfa-quick-cards',
             'project-performance-and-flow-analytics/ppfa-flow-health',
+            'project-performance-and-flow-analytics/ppfa-flow-metrics-overview',
+            'project-performance-and-flow-analytics/ppfa-issue-history'
           ],
         },
 
