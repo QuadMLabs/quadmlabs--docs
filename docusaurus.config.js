@@ -78,6 +78,13 @@ const config = {
           position: 'left',
           label: 'Contact',
         },
+        {
+          type: 'docSidebar',
+          sidebarId: 'sidebarsPrivacy',
+          docsPluginId: 'privacy',
+          position: 'left',
+          label: 'Privacy',
+        },
         //{ to: '/blog', label: 'Blog', position: 'left' },
         /*{
           href: 'https://github.com/QuadMLabs/quadmlabs--docs',
@@ -150,6 +157,16 @@ const config = {
         path: 'contact', 
         routeBasePath: 'contact',
         sidebarPath: require.resolve('./sidebarsContact.js'),
+        editUrl: undefined,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'privacy',
+        path: 'privacy', 
+        routeBasePath: 'privacy',
+        sidebarPath: require.resolve('./sidebarsPrivacy.js'),
         editUrl: undefined,
       },
     ],
