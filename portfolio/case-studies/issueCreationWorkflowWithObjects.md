@@ -1,93 +1,104 @@
 ---
 id: issue-creation-workflow-with-objects
-title: Issue creation workflow with objects
+title: Automated Issue Creation Workflow Integrated with Assets
 sidebar_label: Workflow with Objects
 ---
 
-# Issue Creation Workflow With Objects 
+# Automated Issue Creation Workflow Integrated with Assets
 
 ## Context
 
-An internal team introduced a new strategic classification attribute to support operational segmentation. The attribute was imported and managed in Assets, but there was no mechanism for Jira Software projects to query or use it during issue creation.
+An internal team introduced a new strategic classification attribute to support operational segmentation across multiple Jira Software projects.  
+Although the attribute was stored and maintained in Assets, Jira Software had no native mechanism to retrieve it during issue creation.
 
-The requirement was to enable users in Jira Software to select this attribute directly from Assets when creating specific issue types, ensuring consistent usage and providing traceability regarding how and by whom the attribute was applied.
+This gap resulted in:
+- inconsistent usage across teams,
+- lack of validation and standardization,
+- no traceability regarding who applied the attribute or how it was being used,
+- and operational inefficiencies when linking issues to the new classification.
 
 ---
 
 ## Objective
 
-Enable the automated creation of issues in Jira Software by allowing users to select a specific attribute stored in Assets. This ensures consistent usage, proper validation, and full traceability of where the attribute is applied, who uses it, and how it is integrated into the operational process.
+Enable users to create Jira Software issues by selecting a specific attribute directly from Assets, ensuring:
+- standardized usage across all participating projects,
+- automated validation during issue creation,
+- full traceability regarding attribute usage,
+- and proper synchronization between issue data and Assets.
 
 ---
 
-## Tools used
-
-- Jira Software
-- Assets
-- Scriptrunner
-- Jira Rest APIs
-- Assets Rest APIs
-- Xray
-- Confluence
-
----
-
-## Implementation Breakdown
+## Technologies Used
 
 - **Jira Software**
-    - Workflow design and updates to incorporate the new logic.
-    - Screen configuration adjustments to include and control the new attribute selection.
-    - Creation and configuration of custom fields.
-    - Full implementation cycle across development, QA, and production environments.
-
-- **Assets**
-    - Definition and refinement of AQL queries to retrieve and validate attribute data.
-
-- **ScriptRunner**
-    - Behaviors to dynamically control field visibility and selection.
-    - Validations to ensure proper attribute usage.
-    - Conditions aligned with workflow logic.
-    - Post functions to manage integrations.
-
-- **Rest APIs**
-    - Integration between Assets and Jira Software to guarantee accurate synchronization and validation during issue creation.
-
+- **Assets (Jira Assets)**
+- **ScriptRunner for Jira**
+- **REST APIs (Jira & Assets)**
 - **Xray**
-    - Functional testing of the implemented logic and workflows.
-
 - **Confluence**
-    - Automatic creation of documentation pages and linking them to Jira Software issues.
 
+---
+
+## Implementation
+
+### 1. Jira Software
+- Workflow updates to incorporate attribute validation logic.
+- Adjusted screens to include the Assets-retrieved attribute.
+- Creation and configuration of new custom fields.
+- Full end-to-end deployment across **development**, **QA**, and **production** environments.
+
+### 2. Jira Assets
+- AQL queries defined and optimized to retrieve valid attribute options.
+- Query refinements to ensure real-time validation and filtering.
+
+### 3. ScriptRunner
+- Behaviours to dynamically control field visibility and allowable selections.
+- Validations ensuring correct attribute usage according to business rules.
+- Workflow conditions aligned with the new logic.
+- Post-functions coordinating API interactions and synchronization steps.
+
+### 4. REST APIs
+- Integration between Jira Software and Assets to ensure accurate validation during issue creation.
+- Automated referencing of object data during post-functions.
+
+### 5. Xray
+- Functional test cases covering:
+  - field behavior,
+  - validation paths,
+  - successful creation scenarios,
+  - and error handling.
+
+### 6. Confluence
+- Automated creation of documentation pages linked to Jira issues for enhanced traceability and record keeping.
 
 ---
 
 ## Deliverables
 
-- Updated workflows and screens, adjusted to incorporate the new attribute selection and validation logic.
-- Automated creation and linking of Confluence pages from Jira Software issues for improved documentation and traceability.
-- Synchronized updates to object information in Assets, ensuring consistency between issue data and the attribute managed in the object schema.
-- Implementation of the entire logic across the three environments (development, staging, production)  
-- Delivery of a full test suite demonstrating the expected behavior and validating the implemented functionality
----
-
-## Results
-
-The implemented automation significantly optimized the creation of issues associated with Asset objects, ensuring greater consistency and accuracy in the information between Assets and Jira Software. This notably improved object tracking, making it easy to identify how many issues are linked to each object and which projects they belong to, thus providing greater clarity and control over the use and traceability of attributes.
+- Updated workflows and screens incorporating attribute selection and validation.
+- Automated Confluence page creation linked to Jira issues.
+- Consistent synch
 
 ---
 
-## Role in the Project
+## Results 
+The implemented automation significantly optimized the creation of issues associated with Asset objects, ensuring greater consistency and accuracy in the information between Assets and Jira Software. This notably improved object tracking, making it easy to identify how many issues are linked to each object and which projects they belong to, thus providing greater clarity and control over the use and traceability of attributes. 
 
-Jira Administration, Groovy Development, Functional & Technical Testing
+--- 
 
----
+## Role in the Project 
 
-## Duration
+Jira Administration, Groovy Development, Functional & Technical Testing 
 
-~4 months
+--- 
 
----
+## Duration 
 
-## Current Status
+~4 months 
 
-The functionality is fully deployed in production and actively operating across multiple projects simultaneously, supporting consistent usage and traceability of Assets-related information. 
+--- 
+
+## Current Status 
+
+The functionality is fully deployed in production and actively operating across multiple projects simultaneously, supporting consistent usage and traceability of Assets-related information.

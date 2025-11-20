@@ -4,101 +4,118 @@ title: Comprehensive JSM Implementation with Assets, ScriptRunner, and Refined
 sidebar_label: Integration Tools
 ---
 
-# Full Tool Integration
+# Comprehensive JSM Implementation with Assets, ScriptRunner, and Refined
 
 ## Context
 
-Operational elements management relied on an external application, but the process lacked transparency and standardization. There was limited visibility into the status of each resource, unclear ownership across teams, and inconsistencies between internal and external data.
-Additionally, the scope evolved over time, requiring the solution to remain flexible and adaptable.
+Operational resource management relied on an external application that provided limited visibility into processes. Data discrepancies, unclear ownership, lack of historical traceability, and inconsistent updates created friction between internal and external systems.  
+As the project evolved, the scope expanded, requiring a flexible and scalable solution prepared to support additional teams and workflows.
 
 ---
 
 ## Objective
 
-Centralize and standardize the full lifecycle of resource handling while automating key interactions between internal tools and the external system. The goal was to ensure complete traceability, reduce manual intervention, and enable a consistent and reliable flow of information end-to-end.
+Centralize and standardize the entire resource lifecycle, establishing a robust integration with the external system while reducing manual tasks.  
+The primary goal was to ensure end-to-end traceability, automate repetitive operations, and create a reliable and consistent flow of information between all systems.
 
 ---
 
-## Tools used
+## Technologies Used
 
-- Jira Service Management (JSM)
-- Assets
-- Scriptrunner
-- Jira Rest APIs
-- Scriptrunner Rest APIs
-- Assets Rest APIs
-- Confluence
-- Refined
-
----
-
-## Implementation Breakdown
-
-- **Jira Service Management**
-    - Project creation from scratch.
-    - Design and implementation of the complete workflow.
-    - Building the agent portal and configuring requests.
-    - Creation of custom fields (standard and asset-based).
-    - Assignment of roles based on user type.
-    - Implementation of automations for the main flow.
-
-- **Assets**
-    - Design of the object schema from scratch.
-    - Creation of object types.
-    - Initial data import.
-    - Definition of relationships using AQL.
-    - Configuration of AQL-based fields.
-    - Definition of schema roles and permissions.
-
-- **ScriptRunner**
-    - Advanced email customization.
-    - Behaviors.
-    - Validations.
-    - Conditions.
-    - Post functions.
-    - Scheduled jobs for data synchronization.
-
-- **Rest APIs**
-    - Integration with an external tool via REST API (native Jira + ScriptRunner).
-    - Creation of REST endpoints for external consumption.
-    - Integration Assets with JSM.
-
+- **Jira Service Management (JSM)**
+- **Assets (Jira Assets)**
+- **ScriptRunner for Jira**
+- **REST APIs (Jira, ScriptRunner, Assets)**
 - **Confluence**
-    - Complete documentation of the process, configurations, workflows, and technical decisions.
+- **Refined for Jira**
 
-- **Refined**
-    - Visual design of the portal.
+---
+
+## Implementation
+
+### 1. Jira Service Management
+- Project creation from scratch.
+- Workflow design with transitions validated and automated.
+- Agent and customer portal configuration.
+- Definition of screens, request types, and custom fields.
+- Role and permission setup based on user profiles.
+- Automation rules for the main flow and recurring tasks.
+
+### 2. Jira Assets
+- Full object schema design.
+- Definition of object types, attributes, constraints, and relationships.
+- Initial inventory import from multiple data sources.
+- AQL-based custom fields for asset-to-ticket linking.
+- Permissions defined at schema and object-type level.
+
+### 3. ScriptRunner
+- Advanced email customization.
+- Behaviours for dynamic field control.
+- Validations and workflow conditions.
+- Post-functions for calculations and automatic transitions.
+- Scheduled jobs for data synchronization with the external tool.
+
+### 4. REST API Integrations
+- Two-way integration with the external platform.
+- Custom REST endpoints created for external consumption.
+- Automated processes for create/update/close actions.
+- Assets–JSM integration to maintain data consistency.
+
+### 5. Confluence
+- Full documentation including:
+  - functional design,
+  - solution architecture,
+  - technical configuration,
+  - maintenance procedures,
+  - user guides for operational teams.
+
+### 6. Refined
+- Visual design of the portal, including:
+  - templates,
+  - structured navigation,
+  - role-based content,
+  - service categorization.
 
 ---
 
 ## Deliverables
 
-- JSM project fully configured, including workflows, screens, fields, automation, and permissions aligned to client requirements.
-- Service portal design, optimized for usability and role-based access.
-- Assets object schema designed and implemented according to the operational model.
-- Custom REST endpoints to enable communication with external systems.
-- Full project documentation, including configuration details, instructions, and maintenance guidelines.
+- Fully configured JSM project aligned with operational processes.
+- Unified portal for agents and customers.
+- Implemented Asset schema with relationships and dependencies.
+- Automated integration with the external system via REST APIs.
+- Complete functional and technical documentation.
+- Training and knowledge transfer sessions for internal teams.
 
 ---
 
 ## Results
 
-The implementation significantly improved operational management by enabling complete lifecycle traceability, ensuring consistent and automated assignment logic through centralized data structures, and granting full autonomy for maintaining key elements without interrupting daily operations. The bidirectional integration with the external system now functions reliably, while the redesigned portal, workflow structure, and automation rules deliver a clearer and more efficient experience for both end users and managers.
+- **Complete lifecycle traceability** for every managed resource.
+- **Significant reduction of manual work** due to automation and scheduled jobs.
+- **Unified and consistent data** between internal and external systems.
+- **Improved user experience** through the Refined-designed portal.
+- **Increased operational autonomy**, enabling teams to update inventory without technical intervention.
+- **Stable bidirectional integration** ensuring real-time data accuracy.
 
 ---
 
-## Role in the Project
+## Role
 
-Jira Administration, Groovy Development, Functional & Technical Testing
+- Jira Administration  
+- Groovy Development  
+- Functional and Technical Design  
+- Testing (functional + technical)  
+- Stakeholder Communication
 
 ---
 
 ## Duration
 
-~4 months
+**~4 months**
 
 ---
 
 ## Current Status
 
-The system is in production and continues to evolve through regular support sessions and continuous improvements.
+The solution is live in production and continues to evolve through regular support, enhancements, and new automation improvements.

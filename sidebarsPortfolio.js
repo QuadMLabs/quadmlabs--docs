@@ -29,10 +29,13 @@ const sidebarsPortfolioHome = {
       items: [
         'case-studies/integration-tools', 
         'case-studies/issue-creation-workflow-with-objects',
-        'case-studies/atlassian-ecosystem-support',
-        'case-studies/custom-development-automation-jira'
+        //'case-studies/atlassian-ecosystem-support',
+        //'case-studies/custom-development-automation-jira'
       ],
     },
+    'atlassian-ecosystem-support',
+    'custom-development-automation-jira',
+    'certifications'
   ],
    
 };
