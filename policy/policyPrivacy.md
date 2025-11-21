@@ -1,4 +1,5 @@
 ---
+id: privacy-policy
 title: Privacy Policy
 description: Privacy Policy for QuadMLabs
 ---

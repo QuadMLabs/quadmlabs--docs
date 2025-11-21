@@ -81,9 +81,9 @@ const config = {
         {
           type: 'docSidebar',
           sidebarId: 'sidebarsPrivacy',
-          docsPluginId: 'privacy',
+          docsPluginId: 'policy',
           position: 'left',
-          label: 'Privacy',
+          label: 'Security & Privacy',
         },
         //{ to: '/blog', label: 'Blog', position: 'left' },
         /*{
@@ -163,9 +163,9 @@ const config = {
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'privacy',
-        path: 'privacy', 
-        routeBasePath: 'privacy',
+        id: 'policy',
+        path: 'policy', 
+        routeBasePath: 'policy',
         sidebarPath: require.resolve('./sidebarsPrivacy.js'),
         editUrl: undefined,
       },

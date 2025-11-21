@@ -21,7 +21,8 @@ const sidebarsPrivacyHome = {
   // But you can create a sidebar manually
   
   sidebarsPrivacy: [
-    'privacy', 
+    'privacy-policy', 
+    'security-policy'
   ],
    
 };
