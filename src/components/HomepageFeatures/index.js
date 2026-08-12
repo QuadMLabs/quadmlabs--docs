@@ -8,7 +8,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_time-management_4ss6.svg').default,
     description: (
       <>
-        I help teams and administrators get the most out of Jira, JSM, and Confluence by optimizing configurations, workflows, and dashboards to meet the specific needs of each organization.
+        I help organizations get the most out of Jira, JSM, and Confluence by optimizing configurations, workflows, and dashboards to align with their specific needs.
         <br /><br />
         <i>Clearer processes, more efficient teams.</i>
       </>
@@ -19,20 +19,21 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_mcp-server_7kvc.svg').default,
     description: (
       <>
-        I design rules, scripts, and integrations that connect tools, eliminate repetitive tasks, and improve productivity within the Atlassian environment.
+        I design automation rules, scripts, and integrations that connect tools, streamline processes, and reduce repetitive work across the Atlassian environment.
         <br /><br />
-        <i>Automate, integrate, and accelerate your daily operations.</i>
+        <i>Automate, integrate, and simplify your workflows.</i>
       </>
     ),
   },
   {
-    title: 'Custom Apps and Development', 
+    title: 'Custom Solutions and Development', 
     Svg: require('@site/static/img/undraw_code-review_jdgp.svg').default,
     description: (
       <>
-        I create custom apps and extensions for Jira and Confluence, including solutions published on the Atlassian Marketplace.
+        I build custom solutions and extensions for Jira and Confluence when standard configuration isn't enough, using development to address specific business and technical requirements.
+Extend Atlassian capabilities with solutions built for your needs.
         <br /><br />
-        <i>Custom functionality to enhance your Atlassian environment.</i>
+        <i>Custom solutions for your Atlassian needs.</i>
       </>
     ),
   },

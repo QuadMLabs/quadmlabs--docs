@@ -5,7 +5,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 const config = {
   title: 'QuadMLabs',
   tagline:
-    'Custom-made Atlassian solutions: administration, automation, and integrations for agile and support teams.',
+    'Technical consulting for Jira, JSM, and Confluence, from administration and optimization to automation, integrations, and custom solutions.',
   favicon: 'img/LOGO.jpg',
 
   // 👇 Tu dominio REAL
