@@ -1,4 +1,5 @@
 ---
+id: contact
 title: Contacts
 description: Contact information for QuadMLabs
 ---

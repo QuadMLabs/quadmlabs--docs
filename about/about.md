@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+id: about
 title: "About"
 description: "Professional profile of an Atlassian Consultant"
 ---
@@ -34,4 +34,4 @@ QuadMLabs is my professional space for showcasing projects, technical solutions,
 
 It also provides a foundation for technical consulting, helping organizations evaluate, improve, automate, and extend their Atlassian environments.
 
-The goal is to combine practical experience with technical expertise to turn complex requirements into clear, maintainable solutions.
+I combine practical experience with technical expertise to turn complex requirements into clear, maintainable solutions.
