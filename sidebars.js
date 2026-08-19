@@ -18,7 +18,7 @@ const sidebars = {
   tutorialSidebar: [
     {
       type: 'category',
-      label: 'Documentation',
+      label: 'Projects',
       link: { 
         type: 'doc',
         id: 'intro', // <- Archivo intro.md o intro.mdx en /docs
@@ -29,13 +29,13 @@ const sidebars = {
           label: 'Project Performance & Flow Analytics',
           link: { type: 'doc', id: 'project-performance-and-flow-analytics/index' },
           items: [
-            'project-performance-and-flow-analytics/ppfa-overview',
-            'project-performance-and-flow-analytics/ppfa-getting-started',
-            'project-performance-and-flow-analytics/ppfa-key-indicators-period-analyzed',
-            'project-performance-and-flow-analytics/ppfa-quick-cards',
-            'project-performance-and-flow-analytics/ppfa-flow-health',
-            'project-performance-and-flow-analytics/ppfa-flow-metrics-overview',
-            'project-performance-and-flow-analytics/ppfa-issue-history'
+            //'project-performance-and-flow-analytics/ppfa-overview',
+            //'project-performance-and-flow-analytics/ppfa-getting-started',
+            //'project-performance-and-flow-analytics/ppfa-key-indicators-period-analyzed',
+            //'project-performance-and-flow-analytics/ppfa-quick-cards',
+            //'project-performance-and-flow-analytics/ppfa-flow-health',
+            //'project-performance-and-flow-analytics/ppfa-flow-metrics-overview',
+            //'project-performance-and-flow-analytics/ppfa-issue-history'
           ],
         },
 

@@ -5,135 +5,141 @@ sidebar_label: Quick Cards
 ---
 # Quick Cards Metrics
 
-This section presents a set of quick, high-impact indicators. These cards are visually larger and use stronger colors to highlight operational behavior during the selected period.
+The Quick Cards provide a high-level view of issue activity and operational behavior during the selected analysis period.
+
+Each card represents a specific condition derived from Jira issue data. Together, they provide a quick overview of work entering the project, moving through the workflow, being completed, and being modified during its lifecycle.
 
 ![Key indicators](../../static/img/quickCards.png)
 
----
-
 ## **1. Issues Created**
 
-Represents all issues created within the selected period.
+Represents all issues created within the selected analysis period.
 
----
+This provides an indication of the volume of work entering the project.
 
 ## **2. Issues In Progress**
 
-Counts all issues currently in any status belonging to the **In Progress** status category.
+Counts issues currently in any status belonging to the **In Progress** status category.
 
-This includes statuses such as:
+The specific status name does not determine whether an issue is included. Any status mapped to the In Progress category is considered.
 
-* QA
-* Review
-* In Development
-* Testing
+Examples may include:
 
-> The specific status does not matter; the category is what determines inclusion.
-
----
+- QA
+- Review
+- In Development
+- Testing
 
 ## **3. Issues Resolved**
 
-All issues transitioned into the **Done** status category and Resolution field **!= null**.
+Represents issues that meet both of the following conditions:
 
-This includes:
+- Their current status belongs to the **Done** status category.
+- The Resolution field contains a value.
 
-* Completed
-* Cancelled
-* Rejected
-* Any status under "Done"
+This includes different types of completed outcomes, such as completed, cancelled, or rejected issues.
 
-> This metric includes both consistent and inconsistent resolutions.
-
----
+The metric includes both consistent and inconsistent resolutions.
 
 ## **4. Inconsistent Issues**
 
-Issues resolved with data or process inconsistencies. Three groups are analyzed:
+Identifies issues where the workflow state and resolution data do not represent a consistent lifecycle.
 
-### **Group 1: Resolved but status category is NOT Done**
+The analysis considers three main conditions.
 
-* Transitioned to a resolution value but final status does not belong to **Done**.
+### Resolved but not in Done
 
-### **Group 2: Not Resolved but status category IS Done**
+The issue contains a Resolution value, but its final status does not belong to the Done category.
 
-* Status category indicates closure, but the Resolution is missing.
+### In Done but not resolved
 
-### **Group 3: Resolved AND Done category but with problematic details**
+The issue belongs to the Done status category, but the Resolution field is empty.
 
-* Resolution date is earlier than creation date.
-* The issue was created and immediately auto-transitioned directly to Done.
+### Invalid lifecycle data
 
-> These represent data-quality or workflow-governance issues.
+The issue belongs to the Done category and has a Resolution, but additional inconsistencies are detected, such as:
 
----
+- Resolution date occurring before the creation date.
+- An issue being created and immediately transitioned directly to Done.
+
+These conditions may indicate data-quality, workflow, or automation issues.
 
 ## **5. Reopened Issues**
 
-Issues that:
+Identifies issues that were previously completed and subsequently returned to an active workflow state.
 
-* Reached a Done category status with a valid Resolution
-* Later moved to a non-Done status category
-* And their Resolution was cleared or changed back to **NULL**
+An issue is considered reopened when:
 
----
+1. It reached a Done-category status with a valid Resolution.
+2. It later moved to a non-Done status.
+3. Its Resolution was subsequently cleared.
+
+This metric can help identify work that required additional attention after being considered complete.
 
 ## **6. Issues with Priority Change**
 
-Issues where the **Priority** field changed during their lifecycle.
+Represents issues where the **Priority** field changed at least once during their lifecycle.
 
----
+Frequent priority changes may indicate changing requirements, shifting business needs, or uncertainty around prioritization.
 
 ## **7. Unassigned Issues**
 
-Issues that currently have **no assignee**.
+Represents issues that currently have no assignee.
 
-Important considerations:
+An issue is considered unassigned even if it had an assignee earlier in its lifecycle and was subsequently cleared.
 
-> * If an issue had an assignee and was later cleared, it still counts as unassigned.
-
----
+This metric can help identify work that currently lacks a clear owner.
 
 ## **8. Reassigned Issues**
 
-Issues where the assignee was changed from one user to another.
+Represents issues where responsibility changed from one assignee to another during the issue lifecycle.
 
----
+A high number of reassigned issues may indicate changes in ownership, workload distribution, or uncertainty about responsibility.
 
-## **Interpretation of These Quick Metrics**
+## Interpreting the Quick Metrics
 
-:::info
-💡 These quick cards highlight volume, movement, data behavior, team activity, and process integrity.
-:::
+The Quick Cards provide a compact view of several different aspects of project activity.
 
 Together, these metrics help users understand how work is entering, moving through, and exiting the system.
 
-**A high number of created issues may indicate increasing demand**, while **many** `in-progress` items might suggest **capacity pressure**. 
+### Work volume
 
-**A large volume of resolved issues reflects delivery activity**, but **inconsistent or reopened issues** highlight underlying **process or quality problems**.
+**Issues Created** and **Issues Resolved** provide an indication of the amount of work entering and leaving the workflow.
 
-**Priority changes and reassignment counts** indicate how often the work is being reshaped or redirected, which may signal **shifting requirements or unclear ownership**. 
+A significant increase in created issues may indicate growing demand, while a high number of resolved issues reflects delivery activity.
 
-Lastly, **many unassigned issues** may reflect **delays, lack of ownership, or poor intake practices**.
+### Workflow activity
 
----
+**Issues In Progress** provides an indication of the amount of work currently moving through the workflow.
 
-## **How to Improve These Metrics**
+A consistently high number of in-progress issues may indicate capacity constraints, work accumulation, or bottlenecks.
 
-:::tip
-⭐ These areas can be optimized through workflow governance, better intake practices, and stronger field validation.
-:::
+### Process and data quality
 
-### **Improvement Recommendations**
+**Inconsistent Issues** and **Reopened Issues** provide additional context around the reliability of the issue lifecycle.
 
-* **Review and enforce workflow configuration** to prevent improper transitions or bypasses.
-* **Require and validate Resolution values** for all Done-category transitions.
-* **Restrict editing of Resolution and Priority fields** to prevent unauthorized changes.
-* **Improve assignment discipline** by ensuring each issue receives an immediate owner.
-* **Monitor and reduce excessive priority changes**, which often signal unclear requirements.
-* **Analyze reopened issues** to identify problematic steps or misunderstood closure criteria.
-* **Identify inconsistencies early** through automation rules, validators, and periodic audits.
-* **Limit auto-transitions** or reconfigure them to prevent premature or invalid closures.
-* **Provide team training** on proper workflow usage and Definition of Done.
+A high number of inconsistencies may indicate workflow or data-governance problems, while frequent reopenings may indicate that work is being closed before the expected outcome is fully achieved.
 
-> ✔️ The goal is to reduce noise, prevent rework, and ensure the issue lifecycle reflects real work progress accurately.
+### Ownership and prioritization
+
+**Unassigned Issues**, **Reassigned Issues**, and **Priority Changes** provide visibility into how work ownership and priorities change during the lifecycle of an issue.
+
+Frequent changes may indicate shifting requirements, workload redistribution, or opportunities to improve the intake and assignment process.
+
+## Using the Metrics for Improvement
+
+The Quick Cards can also be used as indicators for areas that may require further investigation.
+
+Potential actions include:
+
+- Review workflow configuration when inconsistent lifecycle states are detected.
+- Require valid Resolution values when issues transition into Done statuses.
+- Restrict inappropriate modifications to Resolution and Priority fields.
+- Improve assignment practices to ensure issues have clear ownership.
+- Review frequent priority changes to identify unclear or changing requirements.
+- Analyze reopened issues to understand why completed work returned to the workflow.
+- Investigate recurring inconsistencies to identify automation or configuration problems.
+- Review automatic transitions that may create premature or unexpected status changes.
+- Establish clear workflow and Definition of Done practices.
+
+The objective is not simply to reduce the numbers shown by these cards, but to use them as signals for understanding **how work moves through the project and where the underlying process may need attention**.

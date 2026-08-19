@@ -5,180 +5,104 @@ sidebar_label: Overview
 ---
 
 # Project Performance & Flow Analytics  
-### Advanced project analysis with zero configuration.
-**See what Jira alone can't show you.**
+Project Performance & Flow Analytics is a custom Jira analytics solution designed to provide visibility into project performance, issue flow, and workflow health.
+
+The project analyzes issue lifecycle and history data and transforms it into metrics, tables, and visualizations that help identify bottlenecks, delays, inconsistencies, and patterns in the way work moves through a project.
 
 ![Dashboard](../../static/img/d1.png)
-
----
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-**Project Performance & Flow Analytics** is an advanced dashboard installed as a *Project Page* within each project. It is not global, does not require special permissions, and is available to any user with access to the project.
+The solution was designed as a project-level dashboard, making its analysis available within the context of an individual Jira project.
 :::
 
-This dashboard transforms your issues into **real-world performance, flow, and efficiency metrics**—no configuration, no administrators, and no reliance on specific agile frameworks. Gain insights that typically require **two or more apps**… now from a single view.
+## The Problem
 
----
+Jira provides extensive information about issues and their history, but turning that information into meaningful flow and performance metrics can require significant manual analysis.
 
-# 🌟 Why this app?
+For example, understanding how long issues spend in individual workflow states may require reviewing their histories, calculating transition durations, and repeating the process across multiple issues.
 
-## The problem Jira can't solve alone
+This project was created to simplify that analysis and make the resulting information easier to understand.
 
-:::danger
-Jira doesn't show how long an issue spends in each state.
-To find out, you have to review the history, add up transitions, and repeat this for each issue.
-This makes it **impossible** to measure bottlenecks.
-:::
+## What the Solution Analyzes
 
-### The main pain points:
-- You can't detect real delays in your workflow.
-- There's no quick way to see how many days an issue has been in *To Do*, *In Progress*, or *Review*.
-- Manually analyzing 20+ issues is impractical.
-- Native metrics depend on Scrum or Story Points.
-- Other apps require complex configurations and administrator privileges.
-- Reviewing the history of an issue with many changes is slow and error-prone.
+### Key Indicators
 
----
+The dashboard provides an overview of project activity for a selected analysis period, including:
 
-# 🚀 The solution: a powerful, configuration-free dashboard
+- Actual Weeks / Active Weeks
+- Raw and Actual Throughput
+- Inconsistency %
+- Issues Created, Resolved, and Reopened
+- Issues with Priority Changes
+- Issues Unassigned or with Multiple Assignments
 
-:::success
-**The app automatically analyzes all issues.** 
+### Flow Health
 
-**It requires no setup, uses no sprints, and doesn't depend on agile frameworks.**
-:::
+The solution analyzes how work moves through the workflow using metrics such as:
 
-✔ Works for any type of project  
-✔ Calculates actual flow metrics, not estimates    
-✔ Available to all users (like a board)    
-✔ Replaces multiple apps and advanced dashboards   
-✔ In-depth assessments without relying on admin roles  
+- Average Cycle Time
+- Average Lead Time
+- Start Cycle Time
+- P85 and P95 Lead Time
+- Flow Efficiency
+- Delivery Ratio
+- Flow Predictability
 
----
+The information can be explored through charts and detailed issue-level data.
 
-# 📊 What does this dashboard offer?
+### Flow Metrics
 
-## 1. ⭐ Key indicators for the period
-Get an instant view of the project's actual performance:
+The project also analyzes workflow states to identify potential bottlenecks and patterns, including:
 
-- **Actual Weeks / Active Weeks**
-- **Raw and Actual Throughput**
-- **Inconsistency %**
-- **Issues Created, Resolved, Reopened**
-- **Issues with Priority Changes**
-- **Issues Unassigned or with Multiple Assignments**
+- Dominant workflow state
+- Most frequent state
+- Average number of states per issue
+- Average and maximum duration per state
+- Distribution of issues by state
+- Detailed time spent by issue and state
 
-:::tip
-This data is calculated automatically for the selected period, without manual settings or filters.
-:::
+This makes it possible to identify where work is spending the most time within a workflow.
 
----
+### Issue History Explorer
 
-## 2. ⚙️ Flow Health Metrics — *Real health of your workflow*
-It includes metrics that Jira does not have natively:
+The Issue History Explorer provides a more focused way to analyze changes made to an issue.
 
-- **Avg Cycle Time**  
-- **Avg Lead Time**  
-- **Start Cycle Time**  
-- **P85 & P95 Lead Time**  
-- **Flow Efficiency (%)**  
-- **Delivery Ratio (%)**  
-- **Flow Predictability**
+Users can:
 
-<Tabs>
-  <TabItem value="charts" label="Charts View">
-    - Donut-shaped charts for Flow Efficiency and Delivery Ratio
-    - Elegant and immediate visual representation
-  </TabItem>
-  <TabItem value="list" label="List View">
-    - Detail by issue with real-time times  
-    - Filters  
-    - Ordering by duration or state  
-  </TabItem>
-</Tabs>
+- Search for an issue by key
+- Review its recorded changes
+- Filter history by field
+- Focus on specific information such as status, assignee, or priority
 
----
+This can be useful for troubleshooting, auditing, and understanding how an issue progressed through its lifecycle.
 
-## 3. 🔎 Flow Metrics Overview — *Identify real bottlenecks*
+## Design Approach
 
-Discover what's holding up your workflow:
+The solution was designed around several principles:
 
-- **Main bottleneck (Dominant state)**
-- **Most frequent state**
-- **Average states per issue**
-- **Comparison of average vs. maximum duration per state**
-- **Distribution of issues by state (horizontal bars)**
-- **Detailed list of times per state per issue**
+- **Minimal configuration** — analysis should not depend on extensive setup.
+- **Project-level context** — information should be meaningful within the project where the work takes place.
+- **Data-driven analysis** — metrics should be derived from issue history and actual project activity.
+- **Accessible visualization** — complex information should be presented through clear charts, tables, and indicators.
+- **Practical analysis** — the goal is to help users identify patterns and areas for improvement rather than simply expose raw data.
 
-:::note
-This data makes it possible to clearly see where the team is investing the most time and where to optimize.
-:::
+## Who Can Benefit From It
 
----
-
-## 4. 🕘 Issue History Explorer — *The easiest history to read in Jira*
-An essential tool for support, QA, and in-depth analysis.
-
-✔ Search for any issue by key  
-✔ View all changes sorted  
-✔ Filter by field  
-✔ Ideal for audits or debugging    
-
-:::info
-Thanks to field filtering, you can review only what matters (for example: *status*, *assignee*, *priority*). This avoids reading hundreds of lines of the native history.
-:::
-
----
-
-# 🎯 Target audience
-Designed for all project roles:
+The analysis can be useful for different roles involved in project delivery and service management, including:
 
 - Project Managers
-- Jira Admins
+- Jira Administrators
 - Scrum Masters
 - Product Owners
 - Developers
-- QA/Support
-- Leadership or CTOs
+- QA and Support teams
+- Technical and operational leadership
 
-Anyone with access to the project can use it.
+## Project Summary
 
----
+Project Performance & Flow Analytics demonstrates how Jira issue data can be transformed into a more comprehensive view of project performance and workflow behavior.
 
-# 🏆 Why is it different from other apps?
-
-:::tip
-**The only app that offers advanced flow analysis for Jira without requiring prior configuration.**
-:::
-
-### Key Advantages:
-
-- No sprints
-- No reliance on story points
-- No admin setup required
-- No need for agile frameworks
-- A single app replaces multiple tools
-- In-depth analytics from day one
-- Guaranteed access for the entire team
-
----
-
-# ✨ In summary
-
-**Project Performance & Flow Analytics** offers:
-- Advanced metrics
-- Universal access
-- Zero configuration
-- Insights that Jira can't display
-- Time savings in analysis and support
-- Clear and professional visualizations
-
-:::success
-Install it in your project and immediately get information that would normally take hours, days, or even several apps to obtain.
-:::
-
----
-
+The project combines **Jira data analysis, custom metrics, processing logic, and data visualization** to provide information that would otherwise require significant manual analysis.

@@ -5,244 +5,238 @@ sidebar_label: Flow Health Metrics
 ---
 # Flow Health Metrics
 
-:::tip
-Overview
+Flow Health provides a view of how work moves through the project, how long it takes to complete, and how consistent the delivery process is.
 
-This section provides a concise overview of Jira workflow performance using six key metrics (Start Cycle, Cycle, and Lead Time, along with their percentiles and predictability levels), complemented by charts showing the percentage of work delivered and the efficiency of the flow. 
-
-**Together, these elements allow for a quick understanding of the health of the workflow and the stability of the delivery process.**
-:::
-
-This section presents six indicators grouped into two categories: **Flow Timing Metrics** and **Flow Predictability Metrics**.  
-These metrics provide insight into how efficiently work moves through the system and how predictable delivery performance is.
-
-In addition, there are two charts: **Work delivered (%)** and **Flow Efficiency (% of Active Work Time)**, which indicate the percentage of work delivered and the active time for its delivery.
+The analysis combines timing metrics, delivery percentiles, predictability, and flow efficiency to provide a broader view of workflow behavior.
 
 ![Key indicators](../../static/img/flowHealth.png)
 
----
-
 ## **1. Flow Timing Metrics**
 
-These three metrics measure how long issues spend in different stages of their lifecycle.
+These metrics describe the time an issue spends waiting, being worked on, and progressing through the complete lifecycle.
 
-**Avg Start Cycle Time**
+**Average Start Cycle Time**
 
-Represents the average time an issue stays **waiting to be worked on after** it is created, but before it enters any **In Progress** status category.
+Average time between issue creation and the first transition into the **In Progress** status category.
 
->**In Jira context**
->
->    - It measures the time between **Issue Created → First transition into the In Progress status category.**
->    - Long Start Cycle Times usually indicate:
->
->        - Work piling up in the backlog or waiting columns
->        - Slow triage or intake processes
->        - Lack of prioritization or unclear ownership
+>```
+> Start Cycle Time = Issue Created → First In Progress transition
+>```
 
-**Avg Cycle Time**
+A high Start Cycle Time may indicate delays in:
+    - Triage or intake
+    - Prioritization
+    - Assignment
+    - Backlog management
+    - Starting work on new issues
 
-Represents the average time it takes to complete an issue once work has started.
+**Average Cycle Time**
 
->**In Jira context**
->
->    - It measures the duration from **First In Progress transition → First transition to the Done status category.**
->    - Long Cycle Times usually reflect:
->
->        - Bottlenecks in development, QA, review, or other workflow stages
->        - Context switching or multitasking
->        - Blocked issues or delayed approvals
+Average time required to complete an issue after work has started.
 
-**Avg Lead Time**
+>```
+> Cycle Time = First In Progress transition → First Done transition
+>```
 
-Represents the total average time from the moment an issue is created until it is completed.
+A high Cycle Time may indicate:
+    - Workflow bottlenecks
+    - Blocked work
+    - Delayed reviews or approvals
+    - Excessive context switching
+    - Rework
 
->**In Jira context**
->
->    - It measures Issue Created → Transition to Done category.
->    - Lead Time reflects the full customer wait time, including:
->
->        - Backlog waiting
->        - Active work time
->        - Any delays, handoffs, or rework 
+**Average Lead Time**
 
->💡 Lead Time = Start Cycle Time + Cycle Time
+Average total time from issue creation until completion.
 
----
+>```
+> Lead Time = Issue Created → First Done transition
+>```
 
-## 2. Flow Predictability Metrics
+Lead Time represents the complete elapsed time experienced by the requester or stakeholder, including waiting time and active work.
 
-These three cards describe delivery predictability and help anticipate completion times.
+Conceptually:
 
-**P85 (Percentile 85 of Lead Time)**
+>```
+> Lead Time ≈ Start Cycle Time + Cycle Time
+>```
 
-Indicates that 85% of completed issues finish within this number of days.
+The relationship provides a useful distinction between time spent waiting to start work and time spent actively progressing through the workflow.
 
->**In Jira context**
->
->    - Calculated from all Lead Times of resolved issues.
->    - Useful when planning for commitments or SLAs.
+## 2. Lead Time Percentiles
 
-**P95 (Percentile 95 of Lead Time)**
+Percentiles provide additional context about the distribution of Lead Time values.
 
-Indicates that 95% of completed issues finish within this number of days.
+**P85 Lead Time**
 
->**In Jira context**
->
->    - More conservative than P85.
->    - Useful when planning for high-risk items or ensuring strong service guarantees.
+The P85 value represents the Lead Time within which approximately 85% of completed issues were delivered.
+
+It provides a more representative planning threshold than the average when delivery times contain significant variation.
+
+**P95 Lead Time**
+
+The P95 value represents the Lead Time within which approximately 95% of completed issues were delivered.
+
+Because it considers the upper portion of the distribution, P95 provides a more conservative view of delivery time and is useful when evaluating longer-running work.
+
+Comparing the average Lead Time with P85 and P95 helps identify how much variation exists across completed issues.
 
 **Flow Predictability**
 
-Measures how predictable delivery is by comparing the P85 to the average Lead Time.
+Flow Predictability is a derived metric that compares P85 Lead Time with the average Lead Time.
 
-**Formula**
-```
-Flow Predictability = P85 / Avg Lead Time
-```
-**Interpretation**
+>```
+> Flow Predictability = P85 Lead Time / Average Lead Time
+>```
 
-    - Values close to 1.0 indicate high predictability.
-    - Higher values mean the team has high delivery variability.
+Values closer to 1.0 indicate that the P85 is relatively close to the average, suggesting lower variation in delivery times.
 
-**Flow Predictability Color Interpretation**
+Higher values indicate that the upper portion of the Lead Time distribution is significantly larger than the average, suggesting greater variability.
 
-:::info
-🎨 Flow Predictability is visually highlighted using color to indicate delivery stability.
-:::
+**Predictability Thresholds**
 
-The following thresholds define how the card color is determined:
+The dashboard uses the following thresholds to provide a visual indication of delivery variability:
 
-    - **Soft Green (≤ 1.2)** → Highly predictable flow, stable delivery times.
-    - **Soft Yellow (≤ 1.5)** → Acceptable variability; mostly predictable.
-    - **Soft Orange (≤ 2.0)** → Noticeable variability; delivery becoming inconsistent.
-    - **Soft Red (> 2.0)** → Unpredictable flow; high variability and instability.
-    - **Gray (no data)** → Not enough information to calculate predictability.
+| Value   | Interpretation           |
+|---------|--------------------------|
+| ≤ 1.2   | Highly predictable flow  |
+| ≤ 1.5   | Mostly predictable       |
+| ≤ 2.0   | Noticeable variability   |
+| > 2.0   | High variability         |
+| No data | Insufficient information |
 
-This allows users to quickly interpret predictability without reading numerical values.
+The color associated with the value provides a quick visual indication, while the numerical value provides the underlying measurement.
 
----
+## 3. Interpreting Flow Health
 
-## 3. Interpretation of Flow Health Metrics
+The timing metrics provide different perspectives on the same workflow.
 
-:::info
-💡 These metrics explain how long work waits, how long it takes to complete once started, and how predictable the overall flow is.
-:::
+    - **Start Cycle Time** indicates how long work waits before being started.
+    - **Cycle Time** indicates how long work takes once it has started.
+    - **Lead Time** represents the complete elapsed time from creation to completion.
 
-Together, Start Cycle Time, Cycle Time, and Lead Time offer a complete picture of delivery performance:
+This distinction helps identify where delays are occurring.
 
-    - **Start Cycle Time** shows how efficient the team is at picking up work.
-    - **Cycle Time** shows how efficient the team is at completing work once started.
-    - **Lead Time** shows how long the customer or stakeholder waits.
+For example, a high Start Cycle Time with a relatively low Cycle Time may indicate that the team can complete work efficiently once it starts, but work is spending too much time waiting to be picked up.
 
-Meanwhile, P85, P95, and Flow Predictability help answer:
+Conversely, a low Start Cycle Time combined with a high Cycle Time may indicate that work starts quickly but encounters delays during execution.
 
-    - *"How consistent is our delivery?"*
-    - *"Can we reliably estimate when work will be done?"*
-    - *"How much variability exists across issues?"*
+P85, P95, and Flow Predictability provide another dimension by showing how consistent those delivery times are across issues.
 
-High percentiles relative to the average Lead Time indicate high variability and low predictability, while lower percentiles reflect steady and reliable flow.
+## 4. Work Delivered
 
----
-
-## 4. How to Improve These Metrics
-
-:::tip
-⭐ These improvements focus on reducing delays, limiting multitasking, and stabilizing workflow behavior.
-:::
-
-**Improvement Recommendations**
-
-    - **Reduce Start Cycle Time**:
-
-        - Improve triage and backlog refinement discipline
-        - Prioritize consistently and keep backlog small and clear
-        - Assign ownership early and avoid prolonged "To Do" queues
-
-    - **Reduce Cycle Time**:
-
-        - Limit WIP (Work in Progress) to reduce multitasking
-        - Identify and remove workflow bottlenecks
-        - Use automation to reduce handoff time
-        - Resolve blockers quickly and escalate early
-
-    - **Improve Lead Time**:
-
-        - Combine improvements to Start Cycle Time + Cycle Time
-        - Streamline intake processes
-        - Optimize approval or review steps
-
-    - **Improve Predictability (P85, P95, Flow Predictability)**:
-
-        - Reduce variability by standardizing workflow transitions
-        - Avoid unnecessary rework or reopening of issues
-        - Keep work items small and consistently sized
-        - Use clear Definition of Ready and Definition of Done
-
-> ✔️ Goal: Stable flow, faster delivery, and predictable outcomes.
-
----
-
-## 5. Work Delivered (%) - Chart
-
-Shows the percentage of cleanly resolved issues (resolved without inconsistencies) relative to all issues analyzed in the selected period.
+The Work Delivered (%) chart represents the proportion of analyzed issues that were resolved cleanly.
 
 ![Key indicators](../../static/img/workDelivery.png)
 
-**Formula**:
+>```
+> Work Delivered (%) = Clean Resolved Issues / Total Issues Analyzed × 100
+>```
 
-```
-Work Delivered (%) = (Total Clean Resolved Issues / Total Issues Analyzed) * 100
+A cleanly resolved issue is one that:
 
-```
+    - Reaches the Done status category.
+    - Contains a valid Resolution.
+    - Passes the consistency checks defined by the analysis.
 
->**In Jira context**
->
->   - "Cleanly resolved" means:
->
->       - Issue is in the Done category
->       - Has a valid Resolution
->       - Passes all consistency checks (no incorrect status category, no invalid resolution timestamps, etc.)
->
->   - "Total issues analyzed" includes all issues in scope for the selected period.
+The metric provides a view of delivery effectiveness by distinguishing completed work from completed work that contains identified inconsistencies.
 
-:::info
-💡 This chart reflects delivery effectiveness and how much clean value was actually completed.
-:::
+## 5. Flow Efficiency 
 
-## 6. Flow Efficiency (% of Active Work Time)
-
-Indicates how much of the total Lead Time was spent in active work versus waiting.
+Flow Efficiency represents the proportion of Lead Time spent in active work rather than waiting.
 
 ![Key indicators](../../static/img/flowEff.png)
 
-**Formula**
+>```
+> Flow Efficiency = Sum of Cycle Time / Sum of Lead Time × 100
+>```
 
-```
-Flow Efficiency = (Sum of Cycle Time / Sum of Lead Time) * 100
+Where:
 
-```
->**In Jira context**
->
->   - **Cycle Time** = Time from first entering *In Progress* → entering *Done*
->   - **Lead Time** = Time from issue creation → entering *Done*
->   - This metric highlights the proportion of time work was actually being executed.
+    - **Cycle Time** represents the time from the first In Progress transition to the first Done transition.
+    - **Lead Time** represents the time from issue creation to the first Done transition.
+
+The metric therefore highlights the relationship between active execution time and total elapsed time.
 
 **Interpretation**
 
-    - **High Flow Efficiency (> 40%)** → Work progresses with minimal waiting; strong workflow health.
-    - **Moderate Flow Efficiency (20–40%)** → Some waiting or delays present.
-    - **Low Flow Efficiency (< 20%)** → Most time is spent waiting; significant bottlenecks exist.
+| Flow Efficiency | General interpretation                |
+|-----------------|---------------------------------------|
+| > 40%           | Higher proportion of active work time |
+| 20–40%          | Moderate waiting time                 |
+| < 20%           | Significant waiting time              |
 
-:::info
-⭐ This chart makes visible the hidden waste in the system and emphasizes the difference between calendar time and actual work time.
-:::
+These thresholds are intended as practical indicators rather than universal benchmarks. The appropriate level of efficiency depends on the type of work and the workflow being analyzed.
 
-## 7. List View
+## 6. Issue-Level Analysis
 
-In addition to cards and charts, this section includes a List view that displays a detailed table of all analyzed issues. 
+The Flow Health section also provides a detailed list of the issues included in the analysis.
 
 ![Key indicators](../../static/img/listFlowHealth.png)
 
-This table combines standard columns (Key, Summary, Priority, Reporter, Assignee, Status, Resolution) with calculated metrics (Inconsistent, Reopened, Reassigned, Changed Priority, Start Cycle Time, Cycle Time, Lead Time). 
+The table combines standard Jira issue information with calculated flow metrics.
 
-This view can be exported for analysis, audits, or reporting.
+**Standard information**
+
+    - Key
+    - Summary
+    - Priority
+    - Reporter
+    - Assignee
+    - Status
+    - Resolution
+    
+**Calculated information**
+
+    - Inconsistent
+    - Reopened
+    - Reassigned
+    - Changed Priority
+    - Start Cycle Time
+    - Cycle Time
+    - Lead Time
+
+The detailed view allows the aggregate metrics displayed in the dashboard to be traced back to individual issues.
+
+The data can also be exported for further analysis, audits, or reporting.
+
+## Using the Metrics for Process Improvement
+
+The metrics can help identify different types of workflow problems.
+
+### High Start Cycle Time
+
+Potential areas to investigate:
+
+    - Intake and triage processes
+    - Backlog prioritization
+    - Assignment practices
+    - Work queues
+
+### High Cycle Time
+
+Potential areas to investigate:
+
+    - Workflow bottlenecks
+    - Work in progress
+    - Approval or review stages
+    - Blocked issues
+    - Rework
+
+### High Lead Time with Low Cycle Time
+
+This may indicate that issues spend a significant amount of time waiting before work begins.
+
+### High Lead Time and High Cycle Time
+
+This may indicate delays both before and during active work.
+
+### High Predictability Ratio
+
+A high Flow Predictability value indicates greater variation in delivery times and may warrant investigation into unusually long-running issues, workflow variability, or inconsistent work patterns.
+
+### Low Flow Efficiency
+
+A low Flow Efficiency value indicates that a large proportion of total Lead Time is spent outside active work. This can help identify waiting, handoffs, queues, or other sources of delay.
+
+The purpose of these metrics is therefore not only to measure performance, but to provide signals that can guide further analysis of the underlying process.

@@ -1,157 +1,90 @@
 ---
 id: ppfa-getting-started
-title: Getting Started
-sidebar_label: Getting Started
+title: How It Works
+sidebar_label: How It Works
 ---
-# Getting Started
+# How It Works
 
-Welcome to **Project Performance & Flow Analytics** — a powerful Jira add-on that provides advanced metrics, deep performance insights, and analytics that Jira does *not* offer natively.  
-This guide will walk you through how to open the app, select an analysis period, interpret errors, and use the Issue History tool.
+Project Performance & Flow Analytics is designed to provide project-level analytics with minimal configuration.
 
----
+The analysis starts by selecting a period. The solution then retrieves and processes the relevant Jira issue data before presenting the resulting metrics and visualizations.
 
-## 🚀 Accessing the App After Installation
+## 1. Accessing the Project Dashboard
 
-Once the app is installed, it becomes available inside each Jira project.
+The solution is implemented as a project-level page within Jira.
 
-In the **new Jira interface**, you can open it from the project’s top navigation bar:
+Users with access to the project can open the dashboard from the project's navigation menu and begin an analysis without requiring additional configuration.
 
-**Summary | Timeline | Board | Releases | More options**
+## 2. Selecting the Analysis Period
 
-Go to:
+The first step is selecting the period to analyze.
 
-**More options → Project Performance & Flow Analytics**
+Available predefined ranges include:
 
-This will open the app.  
-On first load, you will only see the **Period Selector**, which is required before generating analytics.
-
----
-
-## 📅 Period Selection
-
-The period selector is the first step in generating insights.  
-You can choose from several predefined ranges:
-
-- **Last week**  
-- **Last month**  
-- **Last 3 months**  
-- **Last 6 months** (default)  
-- **Last year**  
-- **Custom range**
+- Last week
+- Last month
+- Last 3 months
+- Last 6 months
+- Last year
+- Custom range
 
 ![Period selector](../../static/img/period.png)
 
----
+### Custom Date Range
 
-## 🛠️ Custom Date Range
+A custom analysis can be defined using a start and end date.
 
-Selecting **Custom** will display two date pickers:
-
-- **From date**
-- **To date**
-
-### Important Limits
-
-:::warning
-**Maximum allowed range is 1 year**  
-This limitation prevents slowdowns and avoids Jira REST API throttling.
-:::
-Even if you choose dates from years such as 1999 or 2020, the total span must not exceed **12 months**.
-
-### Best Practice  
-
-:::tip
-👉 *Use short or medium ranges for the fastest analytics refresh.*
-:::
-
+The maximum supported range is one year. This limitation was introduced to keep processing times reasonable and reduce the impact of large Jira API requests.
 
 ![Period range selector](../../static/img/period-range.png)
 
----
+## 3. Processing the Data
 
-## ▶️ Starting the Analysis
+Once a valid period is selected, the solution:
 
-Once a valid period is selected, the app immediately begins:
+1. Retrieves the relevant Jira issue data.
+2. Processes issue activity and history.
+3. Aggregates the information required by each metric.
+4. Calculates performance and flow indicators.
+5. Generates the corresponding tables and visualizations.
 
-- Fetching issue activity  
-- Aggregating metrics  
-- Calculating performance summaries  
-- Preparing graphs and tables  
+The resulting analysis is then presented through the project dashboard.
 
-The dashboard loads automatically after processing.
+## 4. Issue History Analysis
 
-![Period range selector](../../static/img/d1.png)
+The Issue History section provides a focused view of the activity of an individual issue.
 
----
+Users can enter an issue key and review information such as:
 
-## 🔍 Issue History Tool
-
-In the *Issue history* tab, you will find the **Issue key** input.
-
-This section allows you to check the historical activity of a **single issue**, including:
-
-- Status transitions  
-- Time spent  
-- Workload distribution    
-
-### How to use it:
-
-1. Enter an issue key (e.g., `PROJ-123`)  
-2. Press *Search*  
-3. View the complete lifecycle of the issue
-
-:::warning
-- The issue **must belong to the current project**  
-- Issues from other projects **cannot** be retrieved
-:::
+- Status transitions
+- Time spent
+- Changes recorded in the issue history
+- Other relevant field changes
 
 ![Issue history tab](../../static/img/history.png)
 
----
+The issue must belong to the project being analyzed.
 
-## ⚠️ Errors and Validation Messages
+## 5. Validation and Error Handling
 
-The app provides clear, friendly, and helpful error messages.
+The solution validates user input and data availability before processing the analysis.
 
-### You may see an error if:
+Examples include:
 
-- ❌ The selected period returns **no results**
-- ❌ The custom range exceeds **1 year**
-- ❌ The issue **does not exist**
-- ❌ The issue belongs to **another project**
+- Empty analysis periods
+- Custom ranges exceeding one year
+- Issues that cannot be found
+- Issues belonging to another project
 
-### Example Error Messages
+These validations help prevent unnecessary processing and provide clearer feedback to the user.
 
-> **No data found for this period**  
-> Try selecting a shorter or more recent timeframe.
+## Technical Considerations
 
-> **Custom period exceeds 1 year**  
-> Reduce the range to a maximum of 12 months.
+Several implementation decisions were made to balance analytical depth with performance:
 
-> **Issue not found in this project**  
-> Verify the issue key and ensure it belongs to the current project.
+- Analysis ranges are limited to a maximum of one year.
+- Multiple Jira REST APIs are used to retrieve the required information.
+- Data is processed before being presented through the dashboard.
+- The solution performs the analysis within the user's project context.
 
----
-
-## 💡 Helpful Tips
-
-- Shorter analysis ranges load **much faster**  
-- Issue History is ideal for **audits, post-mortems, QA reviews, and incident investigations**  
-- The app requires **no configuration** — everything works out-of-the-box  
-- Metrics are aggregated using **multiple Jira REST APIs** into a single view  
-- All analytics are generated **client-side** to avoid exposing project data
-
----
-
-## 🎉 You're Ready!
-
-With the period selected and the dashboard loaded, you can now explore:
-
-- Productivity metrics  
-- Flow efficiency  
-- Resolution quality  
-- Workload distribution  
-- Issue audit trails  
-
-Enjoy your new visibility into project performance!
-
+These decisions allow the project to provide detailed analytics while keeping the experience simple for the end user.

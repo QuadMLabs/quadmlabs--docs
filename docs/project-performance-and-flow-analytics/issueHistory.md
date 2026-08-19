@@ -5,31 +5,27 @@ sidebar_label: Issue History
 ---
 # Issue History
 
-The **Issue History** section allows users to search and analyze the complete change history of a specific issue within the current project.
-This tool provides a detailed timeline of all recorded events—state transitions, field updates, user actions, and other modifications—so the user can understand exactly how the issue evolved over time.
+The **Issue History** section provides a focused view of how an individual Jira issue evolved throughout its lifecycle.
+
+Users can search for an issue by key and review both its issue-specific flow metrics and its complete change history.
 
 ![Key indicators](../../static/img/history.png)
 
-**🔎 How It Works**
+## Searching for an Issue
 
-The interface consists of:
+The tool uses the issue key to retrieve the historical activity of an issue.
 
-    - An Issue Key input field
-    - A Search button
+For example:
 
-The user enters the issue key, clicks Search, and the system retrieves the issue’s full historical activity.
+>```
+> PROJ-123
+>```
 
-:::warning
-⚠️This tool only supports searching by Issue Key. Searching by summary, reporter, description, or any other attribute is not supported.
-:::
+The search is restricted to the current project, since the application operates at project level.
 
-:::warning
-⚠️The lookup is restricted to the current project. Since the app operates at a project level, searching for issues belonging to other projects is not allowed.
-:::
+Only searches by issue key are supported. Searching by summary, reporter, description, or other issue attributes is not available.
 
----
-
-## 📌 What the User Sees After Searching
+## Issue-Specific Flow Metrics
 
 Once the issue is found and analyzed, two main outputs are displayed:
 
@@ -37,74 +33,88 @@ Once the issue is found and analyzed, two main outputs are displayed:
 
 ### 1. Flow Health Metrics Summary (Issue-Specific)
 
-A compact summary of the Flow Health Metrics, but calculated only for the selected issue.
-
-This includes indicators such as:
-
-    - Time spent across states
-    - Number of transitions
-    - State re-entries
-    - Flow irregularities for that specific issue
+Once an issue is found, the application provides a compact view of its flow behavior.
 
 ![Key indicators](../../static/img/historyFlow.png)
 
-:::tip
-💡For detailed explanations of how Flow Health Metrics work, users should refer to the dedicated Flow Metrics Overview documentation section.
-:::
+The issue-level analysis includes information such as:
 
----
+    - Time spent across workflow states
+    - Number of transitions
+    - State re-entries
+    - Flow irregularities
 
-### 2. Complete Issue History Table
+These metrics provide context about how the individual issue moved through the workflow.
 
-A chronological table showing every event recorded in the issue’s history.
+For detailed explanations of the underlying flow metrics, see [Flow Metrics Overview.](flowMetricsOverview.md)
 
-The table includes the following columns:
+### 2. Complete Issue History
 
-    - Date – When the event occurred
-    - User – Who performed the action
-    - Field – The field that was changed (e.g., status, assignee, priority)
-    - From – Original value
-    - To – New value
+The history view displays the recorded changes for the selected issue in chronological order.
 
 ![Key indicators](../../static/img/historyList.png)
 
-This provides a transparent, audit-friendly view of the issue lifecycle.
+The table includes:
 
----
+|Column | Description                   |
+|------ |-------------------------------| 
+|Date   | When the change occurred      |
+|User   | User who performed the change |
+|Field  | Field that was modified       |
+|From   | Previous value                |
+|To	    | New value                     |
 
-## 🔽 Field-Based Filtering
+This provides a detailed view of how the issue changed over time and makes it easier to investigate specific events.
 
-The history table includes a field filter, allowing the user to narrow down events by the field that changed.
+## Field-Based Filtering
 
-Only fields that actually appear in the issue’s history are included in the filter list. This keeps the interface lightweight and avoids unnecessary data loading.
+The history table can be filtered by the field that was changed.
+
+The filter is generated dynamically from the issue's actual history. Only fields that have recorded changes are included.
 
 For example:
 
-    - If the Assignee field was updated at least once → it will appear in the filter.
-    - If the issue never had any change in Description → Description will not appear in the filter list.
-    - This prevents unnecessary requests to load all Jira fields and keeps the filtering efficient.
+    - If **Assignee** was changed, it appears as a filter option.
+    - If **Priority** was never changed, it does not appear as a filter option.
+    - If **Description** has no recorded changes, it is not included in the filter list.
 
-:::tip
-This filtering logic is based on real-world experience.
-In Jira, when an issue has a long history, and you need to investigate changes to a specific field (for example during support or debugging), Jira does not provide a way to filter the history. You are forced to scroll through every single entry manually.
-This makes it very easy to miss an important change, especially when unrelated events create noise.
+This approach keeps the filter focused on information that is actually relevant to the selected issue.
 
-By displaying only the fields that actually appear in the history and allowing filtering by them, this tool prevents that problem—letting users focus only on the relevant events and reducing the risk of overlooking critical information.
-:::
+### Why This Matters
 
-:::warning
-⚠️The absence of a field in the filter does not mean the issue does not have that field—it only means no changes were recorded for it in the issue’s history.
-:::
+Long Jira histories can contain a large number of unrelated events. When investigating a specific problem, such as an unexpected reassignment or priority change, manually reviewing the entire history can introduce unnecessary noise.
 
----
+Filtering the history by field allows users to focus directly on the changes relevant to their investigation.
 
-## 🧭 Summary
+For example, a support or troubleshooting investigation can quickly isolate:
 
-The Issue History section provides a precise and efficient way to examine how an issue has evolved over time through:
+    - Status changes
+    - Assignee changes
+    - Priority changes
+    - Resolution changes
+    - Other fields with recorded historical activity
 
-    - A focused search by key
-    - Issue-specific Flow Health Metrics
-    - A detailed chronological change log
-    - A dynamic filter based on actual historical fields
+The absence of a field from the filter does not mean that the field does not exist on the issue. It only means that no changes to that field were recorded in the issue history.
 
-This makes it a powerful tool for audits, troubleshooting, workflow validation, and understanding issue behavior in depth.
+## Typical Use Cases
+
+Issue History can be useful for:
+
+    - Troubleshooting unexpected issue behavior
+    - Investigating workflow transitions
+    - Reviewing reassignment or priority changes
+    - Supporting incident investigations
+    - Validating workflow behavior
+    - Performing issue-level audits
+    - Understanding the lifecycle of individual issues
+
+## Summary
+
+Issue History combines four capabilities in a single view:
+
+    - Focused issue lookup by key
+    - Issue-specific flow metrics
+    - Chronological change history
+    - Dynamic filtering based on recorded changes
+
+Together, these features make it easier to move from **"something happened to this issue"** to **"exactly what happened, when, and who changed it."**

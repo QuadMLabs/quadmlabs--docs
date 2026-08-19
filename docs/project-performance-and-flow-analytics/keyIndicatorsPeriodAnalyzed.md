@@ -5,155 +5,130 @@ sidebar_label: Key Indicators for the Period Analyzed
 ---
 # Key Indicators for the Period Analyzed
 
-This section presents six key indicators that summarize the project’s performance for the selected period.
+The dashboard provides a set of indicators that summarize project activity and delivery performance for the selected analysis period.
+
+These metrics establish the context for the other analyses in the project by defining the period being evaluated, the project's active time, delivery throughput, and the presence of data inconsistencies.
 
 ![Key indicators](../../static/img/keyInd.png)
 
----
-
 ## 1. Period Analyzed
 
-Displays the start and end dates of the selected period.
+Defines the start and end dates used for the analysis.
 
 Example:
 
->`2024-07-01 - 2024-09-30`
+>```
+> 2024-07-01 - 2024-09-30
+>```
 
----
+
+All metrics presented by the dashboard are calculated within this period.
 
 ## 2. Real Weeks
 
-Represents the total number of weeks included in the selected period.
+Represents the total number of weeks included in the selected analysis period.
 
-Example:
+For example, a three-month analysis period contains approximately twelve weeks
 
->`If the user selects Last 3 months, the period contains approximately 12 weeks.`
-
----
+Real Weeks provides the overall time span selected by the user.
 
 ## 3. Active Weeks
 
-Indicates how many of the weeks in the selected period the project was actually active.
+Represents the number of weeks during which the project was actually active within the selected period.
 
-Example:
+For example, if a twelve-week analysis period is selected but the project only became active eight weeks ago:
 
->`If the user selects Last 3 months (12 weeks), but the project began operations only 8 weeks ago:`
+>```
+> Active Weeks = 8
+>```
 
->```javascript
-> Active weeks = 8
-> ```
+Performance calculations use Active Weeks rather than Real Weeks.
 
-All performance calculations use Active Weeks, not Real Weeks.
-
-When the selected period fully matches the project's active timeline:
+When the selected period fully overlaps the project's active timeline:
 
 >```
 > Real Weeks = Active Weeks
-> ```
+>```
 
----
+This distinction prevents periods in which no project activity occurred from artificially reducing performance metrics.
 
-## 4. Throughput bruto
+## 4. Gross Throughput
 
-**What is Throughput?**
+Throughput represents the amount of work completed during a given period.
 
-Throughput represents the number of items (issues) completed during a given period.  
-It is a measure of delivery capacity.
-
-**Definition**
-
-Throughput bruto includes all resolved issues, even those that contain inconsistencies.
-
-**Formula**
+**Gross Throughput** includes all resolved issues, including issues identified as inconsistent.
 
 >```
-> Throughput bruto = Total Resolved Issues / Active Weeks
+> Gross bruto = Total Resolved Issues / Active Weeks
 > ```
 
----
+## 5. Net Throughput
 
-## 5. Throughput real
-
-**Concept**
-
-Throughput real reflects the team's clean performance.  
-It considers only the issues resolved correctly, without inconsistencies.
-
-**Formula**
+**Net Throughput** represents the volume of work completed without identified inconsistencies.
 
 >```
-> Throughput real = Correctly Resolved Issues / Active Weeks
+> Net Throughput = Correctly Resolved Issues / Active Weeks
 > ```
 
----
+Comparing Gross Throughput with Net Throughput provides additional context about the quality of the reported delivery.
+
+A high gross throughput combined with a significantly lower net throughput may indicate that a considerable portion of completed work contains inconsistencies.
 
 ## 6. Inconsistency (%)
-**What is an inconsistent issue?**
 
-An inconsistent issue is one that contains errors such as incorrect status, bad resolution, missing information, wrong categorization, or any data-quality irregularity.
+An inconsistent issue is an issue that contains one or more data or process irregularities, such as an incorrect status, invalid resolution, missing information, incorrect categorization, or other conditions identified by the analysis logic.
 
-**Definition**
-
-Indicates what percentage of all resolved issues contain inconsistencies.
-
-**Formula**
+The **Inconsistency %** represents the proportion of resolved issues that contain these irregularities.
 
 >```
 > Inconsistency (%) = (Inconsistent Issues / Total Resolved Issues) * 100
 >```
 
----
+A lower percentage indicates that a greater proportion of completed issues conforms to the criteria used by the analysis.
 
-## Interpretation of Throughput and Inconsistency
+## Interpreting the Indicators
 
-:::info
-💡 **Purpose**: Help users clearly understand what these metrics say about performance and data quality.
-:::
+Gross Throughput and Net Throughput should be considered together with Inconsistency %.
 
-Throughput and inconsistency together provide a complete view of how the team is performing.  
-A **high throughput** indicates stronger delivery capacity — the team is completing more work per active week.
-However, throughput alone does not measure correctness or quality.
+A high Gross Throughput indicates that a significant amount of work was completed during the active period. However, throughput alone does not indicate whether all completed issues were processed consistently.
 
-A **high inconsistency percentage** highlights that many of those completed issues contain errors or irregularities, such as incorrect statuses or wrong resolutions. In this situation:
+For example:
 
-- The team may appear productive, but the work may require rework.
-- Real throughput decreases because only correctly resolved issues count as clean output.
-- Data becomes unreliable for reporting, forecasting, or continuous improvement.
+- **High Gross Throughput + Low Inconsistency** indicates strong delivery volume with relatively clean data.
+- **High Gross Throughput + High Inconsistency** indicates high delivery volume but potential process or data-quality concerns.
+- **Low Gross Throughput + Low Inconsistency** indicates lower delivery volume with relatively consistent data.
+- **Low Gross Throughput + High Inconsistency** may indicate both delivery and process-quality concerns.
 
->✔️ **Ideal scenario**:  
->**High real throughput + Low inconsistency** = strong productivity and clean, reliable delivery.
+The distinction between Gross and Net Throughput therefore provides a more complete view of delivery performance than throughput alone.
 
----
+## Addressing High Inconsistency
 
-## How to Address High Inconsistency Levels
+A high inconsistency rate may indicate opportunities to improve workflow configuration, governance, or process discipline.
 
-:::danger
-🚨 **When inconsistency is high, you likely have process or configuration issues.**
-Below are recommended actions to improve data quality and reduce inconsistent resolutions.
-:::
+Potential areas for investigation include:
 
-**1. Review and tighten workflow configuration**
+**1. Workflow configuration**
 
-    - Ensure closing statuses require a valid resolution.
+    - Ensure closing statuses require appropriate resolutions.
     - Remove invalid or unused resolutions from transitions.
-    - Prevent transitions from skipping required final steps.
+    - Prevent transitions from bypassing required final steps.
 
-**2. Strengthen governance around the Resolution field**
+**2. Resolution Governance**
 
-    - Restrict permissions so only authorized roles can set or modify the Resolution.
-    - Prevent the field from being manually editable at any time.
-    - Use post-functions to automatically set consistent resolutions when appropriate.
+    - Restrict who can modify the Resolution field.
+    - Prevent inappropriate manual changes.
+    - Use workflow logic or automation where appropriate to maintain consistency.
 
-**3. Add validation rules and automation**
+**3. Validation and Automation**
 
-    - Add workflow validators to ensure required fields are filled before closing.
-    - Use automation rules to enforce consistent categorizations or fix common mistakes.
-    - Automatically flag or reopen issues with incorrect resolutions.
+    - Add validators for required information before closing issues.
+    - Use automation to enforce consistent categorization.
+    - Identify or flag issues with inconsistent resolutions.
 
-**4. Establish process discipline**
+**4. Process Discipline**
 
-    - Train the team on proper closing practices and the correct use of resolutions.
-    - Maintain and communicate a clear “Definition of Done.”
-    - Conduct periodic reviews of inconsistent issues to identify patterns.
+    - Establish clear closing practices.
+    - Maintain a consistent Definition of Done.
+    - Review recurring inconsistencies to identify process patterns.
     
-> **⭐ Goal: Reduce rework, improve reporting accuracy, and ensure the system reflects the true state of work.**
+> **The objective is not simply to reduce the inconsistency percentage, but to improve the reliability of the project data and reduce rework.**

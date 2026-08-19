@@ -6,14 +6,12 @@ title: Documentation Intro
 import DocCardList from '@theme/DocCardList';
 import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
-# 👋 Welcome to QuadMLabs Documentation
+# Projects
 
-In this section, you'll find complete documentation for the various applications, solutions, and tools developed by QuadMLabs.
+A selection of technical projects developed within the Atlassian ecosystem.
 
-Each project includes its purpose, features, user guides, configurations, use cases, and technical details to help you understand and get the most out of each implementation.
+These projects reflect my experience across platform administration, solution design, automation, integrations, data analysis, and custom development, showing how I approach technical challenges and build practical solutions within the Atlassian platform.
 
-Explore the projects to discover how our solutions can optimize your processes, improve operational efficiency, and simplify management within the Atlassian ecosystem.
-
-## Explore the Topics
+## Selected Projects
 
 <DocCardList items={useCurrentSidebarCategory().items} />
