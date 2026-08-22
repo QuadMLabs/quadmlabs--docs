@@ -1,6 +1,6 @@
 ---
 id: intro
-title: Documentation Intro
+title: Projects
 ---
 
 import DocCardList from '@theme/DocCardList';

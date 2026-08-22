@@ -80,18 +80,32 @@ const config = {
         },
         {
           type: 'docSidebar',
+          sidebarId: 'sidebarsSkills',
+          docsPluginId: 'skills',
+          position: 'left',
+          label: 'Skills',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'sidebarsCertifications',
+          docsPluginId: 'certifications',
+          position: 'left',
+          label: 'Certifications',
+        },
+        {
+          type: 'docSidebar',
           sidebarId: 'sidebarsContact',
           docsPluginId: 'contact',
           position: 'left',
           label: 'Contact',
         },
-        {
+        /*{
           type: 'docSidebar',
           sidebarId: 'sidebarsPrivacy',
           docsPluginId: 'policy',
           position: 'left',
           label: 'Security & Privacy',
-        },
+        },*/
         //{ to: '/blog', label: 'Blog', position: 'left' },
         /*{
           href: 'https://github.com/QuadMLabs/quadmlabs--docs',
@@ -184,6 +198,26 @@ const config = {
         path: 'about', 
         routeBasePath: 'about',
         sidebarPath: './sidebarsAbout.js',
+        editUrl: undefined,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'skills',
+        path: 'skills', 
+        routeBasePath: 'skills',
+        sidebarPath: './sidebarsSkills.js',
+        editUrl: undefined,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'certifications',
+        path: 'certifications', 
+        routeBasePath: 'certifications',
+        sidebarPath: './sidebarsCertifications.js',
         editUrl: undefined,
       },
     ],

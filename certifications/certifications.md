@@ -1,8 +1,9 @@
 ---
 id: certifications
-title: Certifications & Training
-sidebar_label: Certifications & Training
+title: "Certifications"
+description: "Professional profile of an Atlassian Consultant"
 ---
+
 
 # Certifications & Credentials
 
