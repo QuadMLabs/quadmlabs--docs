@@ -8,9 +8,9 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_time-management_4ss6.svg').default,
     description: (
       <>
-        I help organizations get the most out of Jira, JSM, and Confluence by optimizing configurations, workflows, and dashboards to align with their specific needs.
+        Analyze requirements and Atlassian environments to improve configurations, workflows, and processes across Jira, JSM, and Confluence.
         <br /><br />
-        <i>Clearer processes, more efficient teams.</i>
+        <i>Practical solutions, clearer processes.</i>
       </>
     ),
   },
@@ -19,9 +19,9 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_mcp-server_7kvc.svg').default,
     description: (
       <>
-        I design automation rules, scripts, and integrations that connect tools, streamline processes, and reduce repetitive work across the Atlassian environment.
+        Design and implement automation, scripts, and integrations to connect Atlassian tools, streamline processes, and reduce repetitive work.
         <br /><br />
-        <i>Automate, integrate, and simplify your workflows.</i>
+        <i>Connect systems, automate processes, simplify work.</i>
       </>
     ),
   },
@@ -30,10 +30,9 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_code-review_jdgp.svg').default,
     description: (
       <>
-        I build custom solutions and extensions for Jira and Confluence when standard configuration isn't enough, using development to address specific business and technical requirements.
-Extend Atlassian capabilities with solutions built for your needs.
+        Design and implement custom solutions for Jira and Confluence when standard capabilities are not enough, combining Atlassian expertise with development to address specific technical requirements.
         <br /><br />
-        <i>Custom solutions for your Atlassian needs.</i>
+        <i>Extend Atlassian capabilities when configuration alone is not enough.</i>
       </>
     ),
   },

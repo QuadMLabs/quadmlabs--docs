@@ -10,7 +10,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 A selection of technical projects developed within the Atlassian ecosystem.
 
-These projects reflect my experience across platform administration, solution design, automation, integrations, data analysis, and custom development, showing how I approach technical challenges and build practical solutions within the Atlassian platform.
+These projects reflect my experience across platform administration, solution design, automation, integrations, data analysis, and custom development, showing how I approach technical challenges and turn requirements into practical solutions within the Atlassian platform.
 
 ## Selected Projects
 

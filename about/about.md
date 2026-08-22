@@ -32,6 +32,4 @@ I have also developed custom solutions to address requirements that could not be
 
 QuadMLabs is my professional space for showcasing projects, technical solutions, and experience gained from working with the Atlassian ecosystem.
 
-It also provides a foundation for technical consulting, helping organizations evaluate, improve, automate, and extend their Atlassian environments.
-
-I combine practical experience with technical expertise to turn complex requirements into clear, maintainable solutions.
+It reflects my approach to combining Atlassian expertise with technical problem-solving, from platform configuration and troubleshooting to automation, integrations, and custom solutions.
