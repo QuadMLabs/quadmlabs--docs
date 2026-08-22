@@ -1,5 +1,5 @@
 ---
-id: atlassian-ecosystem-support
+id: portfolio
 title: Portfolio
 sidebar_label: Portfolio
 ---

@@ -21,11 +21,7 @@ const sidebarsPortfolioHome = {
   // But you can create a sidebar manually
   
   sidebarsPortfolio: [
-    //'intro',
-    
-    'atlassian-ecosystem-support',
-    //'custom-development-automation-jira',
-    //'certifications'
+    'portfolio',
   ],
    
 };
