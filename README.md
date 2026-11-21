@@ -29,7 +29,7 @@ The static output is generated in `build/`.
 
 | Path | Content |
 | --- | --- |
-| `about/`, `portfolio/`, `skills/`, `certifications/`, `contact/`, `policy/` | One docs plugin instance per top-level section (see `docusaurus.config.js`) |
+| `about/`, `portfolio/`, `skills/`, `certifications/`, `contact/` | One docs plugin instance per top-level section (see `docusaurus.config.js`) |
 | `docs/` | "Projects" section (Project Performance & Flow Analytics) |
 | `src/pages/index.js` | Home page |
 | `src/components/HomepageFeatures/` | Service cards on the home page |

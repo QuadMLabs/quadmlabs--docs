@@ -14,9 +14,6 @@ const sections = [
   { id: 'contact', label: 'Contact' },
 ];
 
-/** Sections that exist as pages but are not shown in the navbar. */
-const hiddenSections = ['policy'];
-
 /** @param {string} id */
 const sectionPlugin = (id) => [
   '@docusaurus/plugin-content-docs',
@@ -69,7 +66,7 @@ const config = {
     ],
   ],
 
-  plugins: [...sections.map((s) => s.id), ...hiddenSections].map(sectionPlugin),
+  plugins: sections.map((s) => sectionPlugin(s.id)),
 
   themeConfig: {
     image: 'img/LOGO.jpg',
