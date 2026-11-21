@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
@@ -13,19 +14,23 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <img
-          src="/img/LOGO.jpg"
+          src={useBaseUrl('/img/LOGO.jpg')}
           alt="QuadMLabs"
-          style={{
-            width: '250px',
-            marginBottom: '1.5rem',
-            borderRadius: '12px'
-          }}
+          className={styles.heroLogo}
         />
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className={clsx('hero__subtitle', styles.heroTagline)}>
+          {siteConfig.tagline}
+        </p>
         <div className={styles.buttons}>
+          <Link className="button button--primary button--lg" to="/portfolio/portfolio">
+            View Portfolio
+          </Link>
+          <Link className="button button--outline button--primary button--lg" to="/contact/contact">
+            Get in touch
+          </Link>
         </div>
       </div>
     </header>
@@ -37,7 +42,7 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description={siteConfig.tagline}>
       <HomepageHeader />
       <main>
         <HomepageFeatures />

@@ -1,52 +1,175 @@
+/* Self-hosted variable fonts (no external requests). */
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/plus-jakarta-sans';
+
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Global theme overrides (Infima variables).
+ *
+ * Design goal: low-glare, modern palette. No pure white / pure black.
+ *  - Light mode: warm sand background, soft graphite text, muted teal accent.
+ *  - Dark mode: soft green-tinted charcoal, off-white text, softened mint accent.
+ *
+ * To change the accent, edit the --ifm-color-primary-* scales below.
  */
 
-/* You can override the default Infima variables here. */
-/*
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Accent (muted teal) - 5:1 contrast on the sand background */
+  --ifm-color-primary: #266b63;
+  --ifm-color-primary-dark: #226159;
+  --ifm-color-primary-darker: #205b54;
+  --ifm-color-primary-darkest: #1a4a44;
+  --ifm-color-primary-light: #2a7a71;
+  --ifm-color-primary-lighter: #2d837a;
+  --ifm-color-primary-lightest: #36998e;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-}*/
-:root {
-  --ifm-color-primary: #2a6fdb;          /* Azul principal */
-  --ifm-color-primary-dark: #2564c5;     /* Un poco más oscuro */
-  --ifm-color-primary-darker: #225cb6;   /* Más contraste */
-  --ifm-color-primary-darkest: #1b4a92;  /* Tono profundo elegante */
-  --ifm-color-primary-light: #4a86e3;    /* Azul más suave */
-  --ifm-color-primary-lighter: #699aea;  /* Tonalidad más clara */
-  --ifm-color-primary-lightest: #8bb3f0; /* Azul muy claro y agradable */
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 60, 140, 0.08);
+  --docusaurus-highlighted-code-line-bg: rgba(38, 107, 99, 0.12);
+
+  /* Surfaces */
+  --ifm-background-color: #ebe7df;
+  --ifm-background-surface-color: #f2efe9;
+  --ifm-navbar-background-color: #f2efe9;
+  --footer-bg: #2a2f2c;
+  --footer-text: #cfd4cf;
+
+  /* Typography: Inter for body, Plus Jakarta Sans for headings */
+  --ifm-font-family-base: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --ifm-heading-font-family: 'Plus Jakarta Sans Variable', 'Inter Variable', system-ui, sans-serif;
+  --ifm-heading-font-weight: 700;
+  --ifm-font-size-base: 16.5px;
+  --ifm-line-height-base: 1.7;
+  --ifm-h1-font-size: 2.6rem;
+  --ifm-h2-font-size: 1.9rem;
+  --ifm-h3-font-size: 1.35rem;
+
+  /* Text */
+  --ifm-font-color-base: #2b3033;
+  --ifm-heading-color: #20262a;
+  --ifm-color-content-secondary: #50575b;
+
+  /* Borders */
+  --ifm-toc-border-color: #d3cec3;
+  --ifm-color-emphasis-300: #d3cec3;
+
+  /* Hero (custom variables, applied on .hero--primary below) */
+  --hero-bg: #e0dbd1;
+  --hero-text: #20262a;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-/*[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-}*/
 [data-theme='dark'] {
-  --ifm-color-primary: #4f8ff4;          /* Azul claro dominante */
-  --ifm-color-primary-dark: #4781dc;     
-  --ifm-color-primary-darker: #4076c8;
-  --ifm-color-primary-darkest: #335ea1;  /* Azul oscuro profundo */
-  --ifm-color-primary-light: #68a0f6;
-  --ifm-color-primary-lighter: #7cb0f8;
-  --ifm-color-primary-lightest: #9ac4fb;
-  --docusaurus-highlighted-code-line-bg: rgba(80, 120, 200, 0.25);
+  --ifm-color-primary: #7fd1c3;
+  --ifm-color-primary-dark: #68c7b7;
+  --ifm-color-primary-darker: #5cc2b1;
+  --ifm-color-primary-darkest: #3aa896;
+  --ifm-color-primary-light: #96dacd;
+  --ifm-color-primary-lighter: #a2ded3;
+  --ifm-color-primary-lightest: #c0e9e2;
+  --docusaurus-highlighted-code-line-bg: rgba(127, 209, 195, 0.14);
+
+  --ifm-background-color: #1e2321;
+  --ifm-background-surface-color: #252b28;
+  --ifm-navbar-background-color: #252b28;
+  --footer-bg: #181c1a;
+  --footer-text: #b9bfb9;
+
+  --ifm-font-color-base: #d6dad5;
+  --ifm-heading-color: #e8ebe6;
+  --ifm-color-content-secondary: #a5aba5;
+
+  --ifm-toc-border-color: #343b37;
+  --ifm-color-emphasis-300: #343b37;
+
+  --hero-bg: #171b19;
+  --hero-text: #e8ebe6;
+}
+
+/* Hero: Infima sets its variables on .hero--primary itself (pointing at the
+   primary color), so they must be overridden here and not on :root. */
+.hero--primary {
+  --ifm-hero-background-color: var(--hero-bg);
+  --ifm-hero-text-color: var(--hero-text);
+}
+
+/* Same for the dark footer (Infima sets its slate-blue on .footer--dark). */
+.footer--dark {
+  --ifm-footer-background-color: var(--footer-bg);
+  --ifm-footer-color: var(--footer-text);
+}
+
+/* Softer navbar edge instead of the default hard shadow. */
+.navbar {
+  box-shadow: 0 1px 0 var(--ifm-toc-border-color);
+}
+
+.navbar__title {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.navbar__link {
+  font-weight: 500;
+}
+
+h1,
+h2 {
+  letter-spacing: -0.02em;
+}
+
+/* Small accent bar under section headings in content pages. */
+.markdown > h2::before {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 3px;
+  margin-bottom: 0.5rem;
+  border-radius: 2px;
+  background: var(--ifm-color-primary);
+}
+
+/* Hero title: bold, tight, with a soft gradient into the accent color. */
+.hero__title {
+  font-size: clamp(2.6rem, 6vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(120deg, var(--hero-text) 30%, var(--ifm-color-primary-light) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero__subtitle {
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* Buttons: same gentle lift as the home cards. */
+.button {
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Gentle entrance for the hero content. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero .container > * {
+    animation: heroFadeUp 0.6s ease both;
+  }
+  .hero .container > *:nth-child(2) { animation-delay: 0.08s; }
+  .hero .container > *:nth-child(3) { animation-delay: 0.16s; }
+  .hero .container > *:nth-child(4) { animation-delay: 0.24s; }
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

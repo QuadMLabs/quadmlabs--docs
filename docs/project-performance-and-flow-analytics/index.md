@@ -3,9 +3,6 @@ title: Project Performance & Flow Analytics
 sidebar_position: 0
 ---
 
-import DocCardList from '@theme/DocCardList';
-import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
-
 # Project Performance & Flow Analytics
 
 A custom Jira analytics solution developed to provide greater visibility into project performance, issue flow, and process health.
@@ -934,6 +931,3 @@ Issue History combines four capabilities in a single view:
 
 Together, these features make it easier to move from **"something happened to this issue"** to **"exactly what happened, when, and who changed it."**
 </details>
-
-<!-- <DocCardList items={useCurrentSidebarCategory().items} /> -->
-

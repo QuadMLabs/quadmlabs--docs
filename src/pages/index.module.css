@@ -16,8 +16,22 @@
   }
 }
 
+.heroLogo {
+  width: 150px;
+  margin-bottom: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+}
+
+.heroTagline {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+}
+
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
