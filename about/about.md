@@ -1,35 +1,57 @@
 ---
 id: about
-title: "About"
-description: "Professional profile of an Atlassian Consultant"
+title: About
+slug: /
+hide_table_of_contents: true
 ---
+
+import {CardGrid, Card, StepCard, ContactCard} from '@site/src/components/Cards';
 
 # About
 
-## Atlassian Consultant
+<p className="lead">
+I'm an Atlassian consultant with more than six years working with Jira, Jira Service Management and Confluence. Most of that time was in production environments where people depend on these tools every day, so they have to work, and when they don't, someone has to find out why.
+</p>
 
-I am an Atlassian Consultant with more than six years of experience working with Jira, Jira Service Management, Confluence, and the wider Atlassian ecosystem.
+My background is on the administration and support side, but I also write code: ScriptRunner scripts, integrations, and apps on Forge. Having both is what lets me understand how a team works and then build or fix whatever that team needs.
 
-My work combines platform administration, technical analysis, automation, integrations, and custom development. I help organizations improve the way their Atlassian environments are configured and used, with a focus on practical solutions that are reliable, maintainable, and aligned with their processes.
+QuadMLabs is the name I use for my Atlassian work and my projects.
 
-## My Approach
+## How I work
 
-I believe that good technical solutions should make things clearer, not more complicated.
+<CardGrid>
+  <StepCard number="01" title="Process first">
+    Before I touch the tool, I want to understand what the team is actually trying to do.
+  </StepCard>
+  <StepCard number="02" title="Smallest fix that works">
+    Sometimes it's configuration, sometimes automation, sometimes it needs code. I start with the simplest one.
+  </StepCard>
+  <StepCard number="03" title="Evidence first">
+    If I think it's a product bug, I reproduce it and collect the logs before opening a case with the vendor.
+  </StepCard>
+  <StepCard number="04" title="Leave it documented">
+    Someone should be able to understand it months later, and that someone is often me.
+  </StepCard>
+</CardGrid>
 
-I approach problems by first understanding the underlying process and identifying the real source of an issue before deciding whether the right solution is configuration, automation, integration, or custom development.
+## What I do
 
-This combination of Atlassian platform knowledge and technical development skills allows me to work across both operational and technical challenges.
+<CardGrid columns={2}>
+  <Card eyebrow="Running the platform" title="Administration and support">
+    Troubleshooting and support of multi-node Jira Data Center environments with thousands of users, plus Jira Service Management and Confluence.
+  </Card>
+  <Card eyebrow="Extending it" title="Automation and development">
+    Groovy and ScriptRunner, REST APIs and webhooks, and apps built on Atlassian Forge with React.
+  </Card>
+</CardGrid>
 
-## Experience
+## Contact {#contact}
 
-Over the years, I have worked with teams and production environments where Jira and related Atlassian products are critical to software delivery, service management, and business operations.
+For questions about my work or anything related to Atlassian:
 
-My experience includes complex administration, troubleshooting, data management, automation, integrations, and collaboration with vendors and technical teams to resolve challenging issues.
-
-I have also developed custom solutions to address requirements that could not be effectively solved through standard platform capabilities.
-
-## QuadMLabs
-
-QuadMLabs is my professional space for showcasing projects, technical solutions, and experience gained from working with the Atlassian ecosystem.
-
-It reflects my approach to combining Atlassian expertise with technical problem-solving, from platform configuration and troubleshooting to automation, integrations, and custom solutions.
+<ContactCard
+  items={[
+    {label: 'General inquiries', email: 'info@quadmlabs.com'},
+    {label: 'Technical collaboration', email: 'admin@quadmlabs.com'},
+  ]}
+/>

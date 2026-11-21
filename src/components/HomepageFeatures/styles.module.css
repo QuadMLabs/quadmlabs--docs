@@ -20,6 +20,63 @@
 }
 
 .featureSvg {
-  height: 180px;
-  width: 180px;
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+}
+
+/* Illustration palette (follows the active theme) */
+.blob {
+  fill: var(--ifm-color-primary);
+  opacity: 0.1;
+}
+
+.accent {
+  fill: var(--ifm-color-primary);
+}
+
+.soft {
+  fill: var(--ifm-color-primary);
+  opacity: 0.32;
+}
+
+.ink {
+  fill: var(--ifm-font-color-base);
+  opacity: 0.5;
+}
+
+.panel {
+  fill: var(--ifm-background-color);
+  stroke: var(--ifm-color-emphasis-300);
+  stroke-width: 1.5;
+}
+
+.link line,
+.base {
+  stroke: var(--ifm-color-primary);
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.55;
+}
+
+.base {
+  opacity: 0.3;
+}
+
+.onAccentFill {
+  fill: var(--ifm-background-color);
+}
+
+.tileCut {
+  fill: var(--ifm-background-surface-color);
+}
+
+.glyph,
+.glyph polyline,
+.glyph line {
+  fill: none;
+  stroke: var(--ifm-background-color);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }

@@ -161,6 +161,7 @@ h2 {
   .hero .container > *:nth-child(2) { animation-delay: 0.08s; }
   .hero .container > *:nth-child(3) { animation-delay: 0.16s; }
   .hero .container > *:nth-child(4) { animation-delay: 0.24s; }
+  .hero .container > *:nth-child(5) { animation-delay: 0.32s; }
 }
 
 @keyframes heroFadeUp {
@@ -172,4 +173,43 @@ h2 {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Single-page sections (About, Experience, Credentials & Skills): no breadcrumbs,
+   wider content area, and a larger lead paragraph. */
+.plugin-id-about .theme-doc-breadcrumbs,
+.plugin-id-experience .theme-doc-breadcrumbs,
+.plugin-id-skills .theme-doc-breadcrumbs {
+  display: none;
+}
+
+.plugin-id-about .col,
+.plugin-id-experience .col,
+.plugin-id-skills .col {
+  --ifm-col-width: 100%;
+}
+
+.plugin-id-about .container,
+.plugin-id-experience .container,
+.plugin-id-skills .container {
+  max-width: 1000px;
+}
+
+.lead {
+  max-width: 46rem;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--ifm-color-content-secondary);
+}
+
+/* Navbar: make the active section clearly visible (tinted pill + accent color). */
+.navbar__link {
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar__link--active {
+  color: var(--ifm-color-primary);
+  background-color: color-mix(in srgb, var(--ifm-color-primary) 16%, transparent);
 }

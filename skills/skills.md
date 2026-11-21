@@ -1,85 +1,71 @@
 ---
 id: skills
-title: "Skills"
-description: "Professional profile of an Atlassian Consultant"
+title: Credentials & Skills
+slug: /
+hide_table_of_contents: true
 ---
 
-# Skills
+import {CardGrid, Card} from '@site/src/components/Cards';
+import TagList from '@site/src/components/TagList';
 
-My experience spans Atlassian solution design, platform configuration, technical troubleshooting, automation, integrations, data analysis, and custom development.
+# Credentials & Skills
 
-I combine functional understanding of Atlassian products with technical capabilities to design and implement solutions appropriate to each requirement.
+## Credentials
 
-## Atlassian Solution Design
+<CardGrid>
+  <Card eyebrow="Professional certification · 2023" title="Atlassian Certified in Managing Jira Projects for Cloud">
+    ACP-620 · Atlassian
+  </Card>
+  <Card eyebrow="Specialist · 2026" title="Atlassian Certified ITSM Specialist">
+    Atlassian
+  </Card>
+  <Card eyebrow="Specialist · 2026" title="Atlassian Certified Agile DevOps Specialist">
+    Atlassian
+  </Card>
+</CardGrid>
 
-- Requirements analysis and solution design
-- Jira configuration and governance
-- Workflow, permission, role, field, and scheme design
-- Solution validation and production deployment
-- Technical and functional documentation
-- Stakeholder and client collaboration
+### Fundamentals
 
-## Jira & Jira Service Management
+<TagList items={['Forge · ACH-805', 'Rovo · ACH-800', 'Loom · ACH-810', 'JSM with AI · ACH-815', 'Cloud · ACH-820']} />
 
-- Jira Software administration
-- Jira Service Management administration
-- Workflows, screens, fields, and issue types
-- Request types, portals, queues, and SLAs
-- JQL, dashboards, notifications, and automation
-- Permissions, roles, and issue security
+### Accreditations & other
 
-## Jira Assets
+- **Atlassian Technical Delivery accreditations:** Software Development, Service Management, Enterprise Strategy & Planning, Teamwork Foundations, Cloud Migration.
+- **Registered Scrum Basic**, Scrum Inc. (2026).
 
-- Schema, object type, attribute, and relationship design
-- AQL and Assets custom fields
-- Data modeling and asset-to-issue relationships
-- Permissions, imports, and synchronization
-- Reporting, data consistency, and traceability
+## What I'm good at
 
-## Technical Troubleshooting
+<CardGrid columns={2}>
+  <Card title="Supporting Jira at scale">
+    Multi-node Data Center, with dev, QA and production environments and thousands of users synced from Crowd. Whether a request is routine or deeply complex, it's mine until it's solved.
+  </Card>
+  <Card title="Finding the real cause">
+    Reproducing problems, reading logs across nodes, and telling apart configuration issues, app issues and product bugs. When the vendor is needed, I bring the evidence (Atlassian, ScriptRunner, Xray).
+  </Card>
+  <Card title="Designing solutions">
+    Turning business requirements into Jira, Jira Service Management and Assets solutions that last, and choosing between configuration, automation, integration and code.
+  </Card>
+  <Card title="Writing code for Atlassian">
+    Groovy and ScriptRunner (behaviours, validators, listeners, scheduled jobs), REST APIs and webhooks, and apps on Forge with React.
+  </Card>
+  <Card title="Making sense of the data">
+    I built Project Performance & Flow Analytics, a Jira Cloud app that turns issue history into flow metrics.
+  </Card>
+</CardGrid>
 
-- Root-cause analysis and issue reproduction
-- Log and audit analysis
-- Permission, notification, and workflow diagnostics
-- Reindexing and production troubleshooting
-- Cross-application and third-party application analysis
-- Evidence collection and vendor / Atlassian Support escalation
+## Toolbox
 
-**Diagnostic tools:** Atlassian Troubleshooting and Support Tools, Permission Helper, Notification Helper, ScriptRunner logs, system and application logs.
-
-## Automation & Integrations
-
-- Jira Automation
-- ScriptRunner and Groovy
-- Behaviours, validators, conditions, post-functions, listeners, and scheduled jobs
-- Script Console and administrative scripting
-- REST APIs and custom REST endpoints
-- Webhooks and external system integrations
-- Data synchronization and processing
-
-## Atlassian Cloud & Data Center
-
-### Jira Cloud
-
-- Jira Cloud administration
-- Atlassian Forge and Forge Custom UI
-- React and JavaScript
-- Jira Cloud REST APIs
-
-### Jira Data Center
-
-- Jira Data Center administration
-- Multi-node environments
-- Application administration
-- Log analysis and reindexing
-- Marketplace application troubleshooting
-
-## Data Analysis & Custom Solutions
-
-- Jira issue and workflow data analysis
-- Flow metrics and performance analysis
-- Data processing and metric calculation
-- Reporting, dashboards, and data visualization
-- Custom analytics and technical solutions
-
-My experience also includes developing **Project Performance & Flow Analytics**, a Jira Cloud application designed to analyze project performance, issue flow, and process behavior.
+<CardGrid>
+  <Card
+    title="Atlassian"
+    footer={<TagList items={['Jira Software', 'Jira Service Management', 'Confluence', 'Assets', 'Crowd', 'Jira Automation']} />}
+  />
+  <Card
+    title="Code and integrations"
+    footer={<TagList items={['Groovy', 'ScriptRunner', 'REST APIs', 'Webhooks', 'Forge', 'React', 'JavaScript']} />}
+  />
+  <Card
+    title="Operations"
+    footer={<TagList items={['Jira Data Center', 'Multi-node', 'Reindexing', 'Log analysis', 'Marketplace apps']} />}
+  />
+</CardGrid>

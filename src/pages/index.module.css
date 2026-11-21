@@ -17,10 +17,20 @@
 }
 
 .heroLogo {
-  width: 150px;
-  margin-bottom: 1.5rem;
-  border-radius: 16px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  width: 96px;
+  height: 96px;
+  margin-bottom: 1.25rem;
+  border-radius: 22px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+}
+
+.heroEyebrow {
+  margin: 0.25rem 0 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ifm-color-primary);
 }
 
 .heroTagline {

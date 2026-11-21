@@ -3,15 +3,14 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /**
  * Top-level sections of the site. Each one is its own docs plugin instance so
- * that it gets a clean URL (/about, /skills, ...). They have no sidebar since
- * each section is a single page.
+ * that it gets a clean URL (/about, /experience, ...). Each section is a single
+ * page (slug: /), so there is no sidebar. The first entry is shown before
+ * "Projects" in the navbar.
  */
 const sections = [
-  { id: 'about', label: 'About' },
-  { id: 'portfolio', label: 'Portfolio' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'certifications', label: 'Certifications' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'about', label: 'About & Contact' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'skills', label: 'Credentials & Skills' },
 ];
 
 /** @param {string} id */
@@ -25,12 +24,23 @@ const sectionPlugin = (id) => [
   },
 ];
 
+/** @param {{id: string, label: string}} s */
+const navbarDoc = (s) => ({
+  type: 'doc',
+  docId: s.id,
+  docsPluginId: s.id,
+  position: 'left',
+  label: s.label,
+});
+
+const [aboutItem, ...otherItems] = sections.map(navbarDoc);
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'QuadMLabs',
   tagline:
-    'Atlassian Consultant combining platform expertise, solution design, automation, integrations, and custom development.',
-  favicon: 'img/LOGO.jpg',
+    'I work with Jira, Jira Service Management and Confluence: keeping them running in production, fixing what breaks, and building what the platform does not do out of the box.',
+  favicon: 'img/favicon.ico',
 
   url: 'https://quadmlabs.com',
   baseUrl: '/',
@@ -41,6 +51,17 @@ const config = {
   future: {
     v4: true,
   },
+
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: { rel: 'icon', type: 'image/svg+xml', href: '/img/logo-mark.svg' },
+    },
+    {
+      tagName: 'link',
+      attributes: { rel: 'apple-touch-icon', href: '/img/apple-touch-icon.png' },
+    },
+  ],
 
   onBrokenLinks: 'throw',
 
@@ -53,8 +74,9 @@ const config = {
     [
       'classic',
       {
-        // "Projects" section (default docs plugin instance, served at /docs).
+        // "Projects" section (default docs plugin instance, served at /projects).
         docs: {
+          routeBasePath: 'projects',
           sidebarPath: './sidebars.js',
         },
         // Blog is disabled for now (pass an options object to enable it later).
@@ -69,7 +91,7 @@ const config = {
   plugins: sections.map((s) => sectionPlugin(s.id)),
 
   themeConfig: {
-    image: 'img/LOGO.jpg',
+    image: 'img/social-card.png',
     colorMode: {
       respectPrefersColorScheme: true,
     },
@@ -77,31 +99,12 @@ const config = {
       title: 'QuadMLabs',
       logo: {
         alt: 'QuadMLabs logo',
-        src: 'img/LOGO.jpg',
+        src: 'img/logo-mark.svg',
       },
       items: [
-        {
-          type: 'doc',
-          docId: 'about',
-          docsPluginId: 'about',
-          position: 'left',
-          label: 'About',
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'projectsSidebar',
-          position: 'left',
-          label: 'Projects',
-        },
-        ...sections
-          .filter((s) => s.id !== 'about')
-          .map((s) => ({
-            type: 'doc',
-            docId: s.id,
-            docsPluginId: s.id,
-            position: 'left',
-            label: s.label,
-          })),
+        aboutItem,
+        { type: 'docSidebar', sidebarId: 'projectsSidebar', position: 'left', label: 'Projects' },
+        ...otherItems,
       ],
     },
     footer: {

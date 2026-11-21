@@ -1,6 +1,7 @@
 ---
 id: intro
 title: Projects
+slug: /
 ---
 
 import DocCardList from '@theme/DocCardList';
@@ -8,10 +9,6 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 # Projects
 
-A selection of technical projects developed within the Atlassian ecosystem.
-
-These projects reflect my experience across platform administration, solution design, automation, integrations, data analysis, and custom development, showing how I approach technical challenges and turn requirements into practical solutions within the Atlassian platform.
-
-## Selected Projects
+Things I've built for the Atlassian platform. At the moment there is one: an analytics app for Jira Cloud.
 
 <DocCardList items={useCurrentSidebarCategory().items} />
