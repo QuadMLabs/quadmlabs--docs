@@ -36,6 +36,15 @@ The static output is generated in `build/`.
 | `src/css/custom.css` | Theme: colors, typography, hero, buttons |
 | `static/` | Images and `CNAME` |
 
+## Languages
+
+The site is published in English (default, at `/`) and Spanish (at `/es/`).
+
+- Spanish pages live in `i18n/es/`, with the same file names as the English originals (for example `i18n/es/docusaurus-plugin-content-docs-about/current/about.md`).
+- Text inside React components uses `<Translate>`; its Spanish strings are in `i18n/es/code.json`. Navbar and sidebar labels are in the other JSON files under `i18n/es/`.
+- To preview Spanish locally: `npm start -- --locale es`. A full `npm run build` generates both languages.
+- When an English page changes, update its Spanish counterpart too.
+
 ## Theme
 
 Colors and typography are defined as CSS variables at the top of `src/css/custom.css`. The accent color is the `--ifm-color-primary-*` scale (one for light mode, one for dark mode). Fonts (Inter and Plus Jakarta Sans) are self-hosted through `@fontsource-variable` packages.

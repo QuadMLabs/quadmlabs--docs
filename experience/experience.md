@@ -5,63 +5,90 @@ slug: /
 hide_table_of_contents: true
 ---
 
-import {CaseStudy} from '@site/src/components/Cards';
+import {CardGrid, Card} from '@site/src/components/Cards';
 
 # Experience
 
 <p className="lead">
-Three engagements that show the kind of work I do.
+Six years inside production Atlassian environments. This is what I know well.
 </p>
 
-They are anonymized, so you won't find client names here: only what the problem was and what I did about it.
+## Right now
 
-<CaseStudy
-  number="01"
-  title="Advanced Atlassian Support"
-  scope="Jira Data Center · 3 environments (dev, QA, production) · 3 to 4 nodes each · thousands of users · user sync from Crowd"
-  challenge="I supported a multi-node Jira Data Center environment full of custom configuration, internal processes, integrations and third-party apps. The job was not to close tickets: whatever came in, simple or not, I had to get to the bottom of it."
-  focus="Most of the work was investigation: reading logs across nodes, reproducing the problem, and working out whether the cause was our configuration, a third-party app or Jira itself."
-  actions={[
-    "Troubleshot Jira Data Center with Atlassian's support tools and logs collected from several nodes.",
-    'Chased down permission and notification problems with the Jira diagnostic tools, and ran a full reindex when the instance needed one.',
-    'Reproduced issues across Jira, Confluence and third-party apps.',
-    'Used ScriptRunner for admin tasks, diagnostics, checking behaviour as a specific user, bulk operations and log analysis.',
-    'Set up webhooks to connect Jira with outside processes and collaboration tools.',
-    'Looked after the Jira and Confluence apps used for reporting, testing, integrations, workflow extensions and project management.',
-    'When it was a product problem, I gathered the evidence and opened the case with Atlassian or the app vendor (ScriptRunner, Xray and others).',
-  ]}
-  tools={['Jira Data Center', 'Crowd', 'Confluence', 'ScriptRunner', 'Webhooks', 'Log analysis', 'Vendor support']}
-/>
+<CardGrid columns={2}>
+<Card eyebrow="Current work" title="Data Center to Cloud migration on Forge">
 
-<CaseStudy
-  number="02"
-  title="Atlassian Solution Design & Implementation"
-  challenge="Design and delivery of an Atlassian solution for a client, from the first requirements to production."
-  focus="The hard part was turning business requirements into something maintainable, deciding at each step what standard Jira could do, what needed automation and what needed custom code."
-  actions={[
-    'Analyzed the requirements and designed the solution.',
-    'Built a proof of concept to check that Jira could really do what was asked.',
-    'Wrote automation and custom functionality in Groovy with ScriptRunner.',
-    'Designed and configured Assets to hold structured information.',
-    'Set up the Jira side: schemes, custom fields, workflows, roles, permissions and SLAs.',
-    'Tested, demoed to the client and refined the solution from their feedback.',
-    'Took it to production and supported it afterwards.',
-  ]}
-  tools={['Jira', 'Assets', 'Groovy', 'ScriptRunner', 'SLAs', 'Workflows']}
-/>
+I'm on the development team of a migration from Data Center to Cloud, rebuilding the Data Center plugins as Forge apps.
 
-<CaseStudy
-  number="03"
-  title="Asset Management & Traceability"
-  challenge="A solution to manage and track asset information with Jira and Assets."
-  focus="It needed Assets modeling, Jira configuration, automation, reporting and custom code working together, so operations could trace every asset."
-  actions={[
-    'Designed the Assets object structure: attributes, relationships, states and data dependencies.',
-    'Built Assets custom fields and AQL queries to pick data dynamically.',
-    'Automated and extended it with Groovy and ScriptRunner.',
-    'Created Assets reports showing the status and movement of assets.',
-    'Defined roles, permissions and schemas to fit the requirements.',
-    'Documented requirements and user guidance in Confluence.',
-  ]}
-  tools={['Jira', 'Assets', 'AQL', 'ScriptRunner', 'Confluence', 'Reporting']}
-/>
+On my own, I built Project Performance & Flow Analytics, a Jira Cloud app on Forge with a React custom UI (see Projects).
+
+</Card>
+</CardGrid>
+
+## What I work with
+
+<CardGrid columns={2}>
+<Card title="Jira in production">
+
+Advanced support, mostly on Data Center and with Cloud knowledge too: every issue, simple or complex, was mine until it was solved.
+
+- Diagnosis with Atlassian's Troubleshooting and Support Tools, application and system logs, and data collected across nodes.
+- Permission and notification problems traced with Permission Helper and Notification Helper.
+- Full instance reindexing when consistency or search problems called for it.
+- Reproducing issues across Jira, Confluence and third-party apps before drawing conclusions.
+
+</Card>
+<Card title="Marketplace apps and vendors">
+
+Many problems live in the apps around Jira, not in Jira itself.
+
+- Troubleshooting apps such as ScriptRunner, Xray and Xporter.
+- Telling apart a configuration problem, an app problem and a product bug.
+- Preparing technical evidence, escalating to Atlassian Support and app vendors when the problem needs them, and following each case until it was resolved.
+
+</Card>
+<Card title="ScriptRunner and Groovy">
+
+Code where configuration stops.
+
+- Behaviours, validators, conditions, post-functions and listeners.
+- Scheduled jobs, the Script Console and custom REST endpoints.
+- Administrative scripting: diagnostics, checking behaviour as a specific user, bulk operations and log analysis.
+
+</Card>
+<Card title="Integrations and data">
+
+Connecting Jira with the rest of the toolchain.
+
+- Webhooks between Jira and external processes and collaboration tools.
+- REST APIs and data synchronization.
+- CSV imports, Issue Collectors and scheduled export processes.
+
+</Card>
+<Card title="Solution design">
+
+From the first requirement to production.
+
+- Requirements analysis, proof of concept, testing, demos and iteration with the client.
+- Choosing between configuration, automation, integration and custom code.
+- Jira configuration: schemes, workflows, roles, permissions and SLAs, plus Jira Service Management request types, portals and queues.
+
+</Card>
+<Card title="Assets">
+
+Structured data, traceable and queryable.
+
+- Schema design: object types, attributes, relationships, states and data dependencies.
+- AQL and Assets custom fields for dynamic data selection.
+- Automation, imports, synchronization and reports on top of the model, documented in Confluence.
+
+</Card>
+</CardGrid>
+
+## Where it came together
+
+Some of the engagements behind this (anonymized, so no client names):
+
+- **Advanced Atlassian support.** A Jira Data Center environment full of custom configuration, internal processes, integrations and third-party apps.
+- **Solution design and implementation.** An Atlassian solution for a client, from requirements to production, balancing standard Jira, automation and custom code.
+- **Asset management and traceability.** Jira and Assets working together so operations could trace every asset.

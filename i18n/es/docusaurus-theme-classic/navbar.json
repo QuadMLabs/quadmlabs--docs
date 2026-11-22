@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "QuadMLabs",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Logo de QuadMLabs",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.About & Contact": {
+    "message": "Acerca de y contacto",
+    "description": "Navbar item with label About & Contact"
+  },
+  "item.label.Projects": {
+    "message": "Proyectos",
+    "description": "Navbar item with label Projects"
+  },
+  "item.label.Experience": {
+    "message": "Experiencia",
+    "description": "Navbar item with label Experience"
+  },
+  "item.label.Credentials & Skills": {
+    "message": "Credenciales",
+    "description": "Navbar item with label Credentials & Skills"
+  }
+}

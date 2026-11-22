@@ -13,7 +13,9 @@ import {CardGrid, Card, StepCard, ContactCard} from '@site/src/components/Cards'
 I'm an Atlassian consultant with more than six years working with Jira, Jira Service Management and Confluence. Most of that time was in production environments where people depend on these tools every day, so they have to work, and when they don't, someone has to find out why.
 </p>
 
-My background is on the administration and support side, but I also write code: ScriptRunner scripts, integrations, and apps on Forge. Having both is what lets me understand how a team works and then build or fix whatever that team needs.
+My background is on the administration and support side, but I also write code: ScriptRunner scripts, integrations, and apps on Forge. Right now I'm on the development team of a migration from Data Center to Cloud, rebuilding the Data Center plugins as Forge apps.
+
+Having both sides is what lets me understand how a team works and then build or fix whatever that team needs.
 
 QuadMLabs is the name I use for my Atlassian work and my projects.
 
@@ -27,7 +29,7 @@ QuadMLabs is the name I use for my Atlassian work and my projects.
     Sometimes it's configuration, sometimes automation, sometimes it needs code. I start with the simplest one.
   </StepCard>
   <StepCard number="03" title="Evidence first">
-    If I think it's a product bug, I reproduce it and collect the logs before opening a case with the vendor.
+    If I think it's a product bug, I reproduce it and collect the logs before opening a case with the vendor, and I stay on it until it is solved.
   </StepCard>
   <StepCard number="04" title="Leave it documented">
     Someone should be able to understand it months later, and that someone is often me.
@@ -38,7 +40,7 @@ QuadMLabs is the name I use for my Atlassian work and my projects.
 
 <CardGrid columns={2}>
   <Card eyebrow="Running the platform" title="Administration and support">
-    Troubleshooting and support of multi-node Jira Data Center environments with thousands of users, plus Jira Service Management and Confluence.
+    Troubleshooting and support of Jira, hands-on with Data Center and familiar with Cloud, plus Jira Service Management and Confluence.
   </Card>
   <Card eyebrow="Extending it" title="Automation and development">
     Groovy and ScriptRunner, REST APIs and webhooks, and apps built on Atlassian Forge with React.

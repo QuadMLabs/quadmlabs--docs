@@ -36,17 +36,20 @@ import TagList from '@site/src/components/TagList';
 ## What I'm good at
 
 <CardGrid columns={2}>
-  <Card title="Supporting Jira at scale">
-    Multi-node Data Center, with dev, QA and production environments and thousands of users synced from Crowd. Whether a request is routine or deeply complex, it's mine until it's solved.
+  <Card title="Supporting Jira in production">
+    Advanced support of Jira, mainly on Data Center, and I know Cloud as well. Whether a request is routine or deeply complex, it's mine until it's solved.
   </Card>
   <Card title="Finding the real cause">
-    Reproducing problems, reading logs across nodes, and telling apart configuration issues, app issues and product bugs. When the vendor is needed, I bring the evidence (Atlassian, ScriptRunner, Xray).
+    Reproducing problems, reading logs across nodes, and telling apart configuration issues, app issues and product bugs. When the vendor is needed, I bring the evidence (Atlassian, ScriptRunner, Xray) and follow the case until it is solved.
   </Card>
   <Card title="Designing solutions">
     Turning business requirements into Jira, Jira Service Management and Assets solutions that last, and choosing between configuration, automation, integration and code.
   </Card>
   <Card title="Writing code for Atlassian">
     Groovy and ScriptRunner (behaviours, validators, listeners, scheduled jobs), REST APIs and webhooks, and apps on Forge with React.
+  </Card>
+  <Card title="Moving Data Center to Cloud">
+    Part of the development team rebuilding Data Center plugins as Forge apps for a migration to Cloud.
   </Card>
   <Card title="Making sense of the data">
     I built Project Performance & Flow Analytics, a Jira Cloud app that turns issue history into flow metrics.
@@ -62,10 +65,10 @@ import TagList from '@site/src/components/TagList';
   />
   <Card
     title="Code and integrations"
-    footer={<TagList items={['Groovy', 'ScriptRunner', 'REST APIs', 'Webhooks', 'Forge', 'React', 'JavaScript']} />}
+    footer={<TagList items={['Groovy', 'ScriptRunner', 'REST APIs', 'Webhooks', 'Forge', 'React', 'JavaScript', 'Data Center to Cloud migration']} />}
   />
   <Card
     title="Operations"
-    footer={<TagList items={['Jira Data Center', 'Multi-node', 'Reindexing', 'Log analysis', 'Marketplace apps']} />}
+    footer={<TagList items={['Jira Data Center', 'Jira Cloud', 'Multi-node', 'Reindexing', 'Log analysis', 'Marketplace apps']} />}
   />
 </CardGrid>

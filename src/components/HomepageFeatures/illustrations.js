@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import {translate} from '@docusaurus/Translate';
 import styles from './styles.module.css';
 
 /**
@@ -22,7 +23,11 @@ function Frame({title, children}) {
 /** Consulting & optimization: a process flow with an improving trend. */
 export function ConsultingIllustration() {
   return (
-    <Frame title="Process flow with a rising trend">
+    <Frame
+      title={translate({
+        id: 'home.illustration.consulting',
+        message: 'Process flow with a rising trend',
+      })}>
       <g className={styles.link}>
         <line x1="56" y1="64" x2="86" y2="64" />
         <line x1="148" y1="64" x2="164" y2="64" />
@@ -54,7 +59,11 @@ export function ConsultingIllustration() {
 /** Automation & integrations: a hub connected to other systems. */
 export function AutomationIllustration() {
   return (
-    <Frame title="Central hub connected to other systems">
+    <Frame
+      title={translate({
+        id: 'home.illustration.automation',
+        message: 'Central hub connected to other systems',
+      })}>
       <g className={styles.link}>
         <line x1="40" y1="36" x2="100" y2="62" />
         <line x1="200" y1="36" x2="140" y2="62" />
@@ -83,7 +92,11 @@ export function AutomationIllustration() {
 /** Custom solutions & development: a code window with an extra module. */
 export function DevelopmentIllustration() {
   return (
-    <Frame title="Code window with an added module">
+    <Frame
+      title={translate({
+        id: 'home.illustration.development',
+        message: 'Code window with an added module',
+      })}>
       <rect className={styles.panel} x="34" y="26" width="156" height="106" rx="12" />
       <line className={styles.base} x1="34" y1="52" x2="190" y2="52" />
       <circle className={styles.accent} cx="50" cy="39" r="3.5" />

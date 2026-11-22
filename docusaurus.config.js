@@ -67,7 +67,11 @@ const config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'es'],
+    localeConfigs: {
+      en: { label: 'English', htmlLang: 'en-US' },
+      es: { label: 'Español', htmlLang: 'es-ES' },
+    },
   },
 
   presets: [
@@ -105,6 +109,7 @@ const config = {
         aboutItem,
         { type: 'docSidebar', sidebarId: 'projectsSidebar', position: 'left', label: 'Projects' },
         ...otherItems,
+        { type: 'localeDropdown', position: 'right' },
       ],
     },
     footer: {
