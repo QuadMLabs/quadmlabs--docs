@@ -63,6 +63,16 @@ const config = {
     },
   ],
 
+  // Privacy-friendly analytics (no cookies). Dashboard: quadmlabs.goatcounter.com
+  scripts: [
+    {
+      src: 'https://gc.zgo.at/count.js',
+      async: true,
+      'data-goatcounter': 'https://quadmlabs.goatcounter.com/count',
+    },
+  ],
+  clientModules: ['./src/clientModules/goatcounter.js'],
+
   onBrokenLinks: 'throw',
 
   i18n: {
